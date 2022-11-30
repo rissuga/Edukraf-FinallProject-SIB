@@ -21,7 +21,7 @@
                 <label for="exampleSelectGender">Tipe Pengguna</label>
                   <select class="form-control" name="select" id="exampleSelectGender">
                     <option value="Super Admin" {{($editData->UserType=="Super Admin"? "selected":"")}}>Super Admin</option>
-                    <option value="Admin" {{($editData->UserType=="Admin"? "selected":"")}} >Admin</option>
+                    <option value="Admin" {{($editData->UserType=="Admin"? "selected":"")}}            >Admin</option>
                   </select>
                 </div>
 

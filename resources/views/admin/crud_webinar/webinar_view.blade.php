@@ -56,12 +56,13 @@
                             <td>{{$allwebinar->Tanggal}}</td>
                             <td>{{$allwebinar->Desc_Webinar}}</td>
                             <td>{{$allwebinar->Pemateri_Webinar}}</td>
-                            <td>{{$allwebinar->Cover}}</td>
+                            <td><img src="/storage/{{ $allwebinar->Cover }}" width="100px" alt=""></td>
+                          
                             <td>{{$allwebinar->status}}</td>
             
                             <td>
                             <div class="row">
-                            <a href="" class="btn btn-info"  style="display: inline-block; 
+                            <a href="{{route('webinar.edit', $allwebinar->id)}}" class="btn btn-info"  style="display: inline-block; 
                            margin-right: 5px; ">edit</a> 
                             <a href="" class="btn btn-danger">delete</a>
                             </div>

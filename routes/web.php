@@ -47,6 +47,8 @@ Route::prefix('webinar')->group(function () {
     Route::get('/webinar/view', [WebinarController::class, 'index'])->name('webinar.view');
     Route::get('/add', [WebinarController::class, 'WebinarAdd'])->name('webinar.add');
     Route::post('/store', [WebinarController::class, 'WebinarStore'])->name('webinar.store');   
+    Route::get('/webinar/edit/{id}', [WebinarController::class, 'WebinarEdit'])->name('webinar.edit');
+    Route::get('/webinar/update', [WebinarController::class, 'WebinarUpdate'])->name('webinar.update');
 
 });
 
