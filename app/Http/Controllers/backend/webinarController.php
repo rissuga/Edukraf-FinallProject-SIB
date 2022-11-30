@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
 use App\Models\webinar;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-
-class WebinarController extends Controller
+class webinarController extends Controller
 {
+    //
     public function index()
     {
-        $webinar = webinar::paginate(2);
+        $webinar = webinar::paginate(1);
         return view('admin.crud_webinar.webinar_view', compact('webinar'));
     }
 
@@ -50,5 +51,4 @@ class WebinarController extends Controller
 
 
     }
-
 }

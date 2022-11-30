@@ -73,7 +73,6 @@
                     </tbody>
                 
                   </table>
-                  
                   {{ $webinar->links() }}
 
             </div>

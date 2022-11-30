@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class coba extends Model
+class adminAccount extends Model
 {
     use HasFactory;
-    protected $table = 'coba';
+    protected $table = 'users';
 }
