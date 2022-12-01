@@ -28,40 +28,32 @@
                                 <th width="100px;">Deskripsi</th>
                                 <th>Pemateri</th>
                                 <th>Cover</th>
-                                <th>Status</th>
+                                <th>Record</th>
                                 <th>Action</th>
+
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-                                <th width="10px">No</th>
-                                <th width="150px">Judul</th>
-                                <th width="80px;">Tanggal</th>
-                                <th width="100px;">Deskripsi</th>
-                                <th>Pemateri</th>
-                                <th>Cover</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                            </tr>
-                        </tfoot>
+
                         <tbody>
 
                             @foreach ($webinar as $key => $allwebinar)
                                 <tr>
                                     <td scope="key"> {{ $key + $webinar->firstItem() }}</td>
-                                    <td>{{ $allwebinar->Judul_Webinar }}</td>
-                                    <td>{{ $allwebinar->Tanggal }}</td>
-                                    <td>{{ $allwebinar->Desc_Webinar }}</td>
-                                    <td>{{ $allwebinar->Pemateri_Webinar }}</td>
-                                    <td><img src="/storage/{{ $allwebinar->Cover }}" width="100px" alt=""></td>
+                                    <td>{{ $allwebinar->title }}</td>
+                                    <td>{{ $allwebinar->date }}</td>
+                                    <td>{{ $allwebinar->desc }}</td>
+                                    <td>{{ $allwebinar->speaker }}</td>
+                                    <td><img src="/storage/{{ $allwebinar->cover }}" width="100px" alt=""></td>
 
-                                    <td>{{ $allwebinar->status }}</td>
+                                    <td>{{ $allwebinar->link_record }}</td>
 
                                     <td>
                                         <div class="row">
                                             <a href="{{ route('webinar.edit', $allwebinar->id) }}" class="btn btn-info"
-                                                style="display: inline-block; margin-right: 5px; ">edit</a>
-                                            <a href="" class="btn btn-danger">delete</a>
+                                                style="display: inline-block; 
+                           margin-right: 5px; ">edit</a>
+                                            <a href="{{ route('webinar.delete', $allwebinar->id) }}"
+                                                class="btn btn-danger">delete</a>
                                         </div>
 
                                     </td>
@@ -73,8 +65,11 @@
                     {{ $webinar->links() }}
 
                 </div>
+
             </div>
         </div>
+
+
 
     </div>
 @endsection

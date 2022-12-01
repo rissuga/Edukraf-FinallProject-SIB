@@ -79,7 +79,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Login Screens:</h6>
                 <a class="collapse-item" href="{{ route('admin.view') }}">Kelola Akun Admin</a>
-                <a class="collapse-item" href="register.html">Register</a>
+                <a class="collapse-item" href="register.html"></a>
                 <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                 <div class="collapse-divider"></div>
                 <h6 class="collapse-header">Other Pages:</h6>
@@ -101,6 +101,12 @@
         <a class="nav-link" href='{{ route('webinar.view') }}'>
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href='{{ route('category.view') }}'>
+            <i class="fas fa-fw fa-table"></i>
+            <span>Kategori Kelas</span></a>
     </li>
 
     <!-- Divider -->

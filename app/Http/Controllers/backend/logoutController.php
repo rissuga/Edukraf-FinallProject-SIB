@@ -5,11 +5,13 @@ use Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class LogoutController extends Controller
+class logoutController extends Controller
 {
     //
-    public function logout() {
+     //
+     public function logout() {
         Auth::logout();
         return Redirect()->route('login');
     }
+
 }

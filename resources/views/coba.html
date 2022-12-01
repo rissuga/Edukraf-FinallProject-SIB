@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@rissuga 
-rissuga
-/
-laravel_adminTemplate
-Public
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-laravel_adminTemplate/resources/views/backend/user/edit_user.blade.php
-@rissuga
-rissuga first commit
-Latest commit 0d64929 on Aug 15
- History
- 1 contributor
-220 lines (192 sloc)  8.24 KB
-
 @extends('admin.body.index')
 @section ('content')
 
@@ -45,6 +15,7 @@ Latest commit 0d64929 on Aug 15
               Basic form elements
             </p>
             <form class="forms-sample">
+
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
@@ -63,8 +34,12 @@ Latest commit 0d64929 on Aug 15
                     <label for="exampleInputName1">Name</label>
                     <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
                   </div>
+
                 </div>
               </div>
+
+
+
               <div class="form-group">
                 <label for="exampleInputName1">Name</label>
                 <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
@@ -88,8 +63,8 @@ Latest commit 0d64929 on Aug 15
       <div class="col-12 grid-margin">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Update User</h4>
-            <form class="form-sample" method="post" action="{{route('users.update', $editData->id)}}">
+            <h4 class="card-title">Add User</h4>
+            <form class="form-sample" method="post" action="{{route('users.store')}}">
               @csrf
 
               <!-- <div class="row">
@@ -117,8 +92,8 @@ Latest commit 0d64929 on Aug 15
                     <div class="controls">
                       <select name="select" id="select" required class="form-control">
                         <option value="">Select Type User</option>
-                        <option value="Admin"  {{($editData->UserType=="admin"? "selected":"")}} >Admin</option>
-                        <option value="User"   {{($editData->UserType=="User"? "selected":"")}}  >User  </option>
+                        <option value="Admin">Admin</option>
+                        <option value="User">User</option>
                       </select>
                     </div>
                   </div>
@@ -128,7 +103,7 @@ Latest commit 0d64929 on Aug 15
                   <div class="form-group">
                     <h7>Name<span class="text-danger">*</span></h7>
                     <div class="controls">
-                      <input type="text" name="textName" value="{{$editData->name}}" class="form-control" required data-validation-required-message="This field is required">
+                      <input type="text" name="textName" class="form-control" required data-validation-required-message="This field is required">
                     </div>
                     <div class="form-control-feedback"><small>Add <code>required</code> attribute to field for required validation.</small></div>
                   </div>
@@ -142,19 +117,19 @@ Latest commit 0d64929 on Aug 15
                   <div class="form-group">
                     <h7>Email <span class="text-danger">*</span></h7>
                     <div class="controls">
-                      <input type="email" name="email" value="{{$editData->email}}" class="form-control" required data-validation-required-message="This field is required">
+                      <input type="email" name="email" class="form-control" required data-validation-required-message="This field is required">
                     </div>
                   </div>
                 </div>
 
-                {{-- <div class="col-md-6">
+                <div class="col-md-6">
                   <div class="form-group">
                     <h7>Password <span class="text-danger">*</span></h7>
                     <div class="controls">
                       <input type="password" name="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
                     </div>
                   </div>
-                </div> --}}
+                </div>
               </div>
 
               <div class="text-xs-right">
@@ -243,18 +218,3 @@ Latest commit 0d64929 on Aug 15
 <script src="{{asset('backend/js/select2.js')}}"></script>
 <!-- End custom js for this page-->
 <script src="{{asset('backend/js/form-validation.js')}}"></script>
-Footer
-© 2022 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-laravel_adminTemplate/resources/views at master · rissuga/laravel_adminTemplatelaravel_adminTemplate/edit_user.blade.php at master · rissuga/laravel_adminTemplate

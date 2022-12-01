@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('webinar', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             $table->id();
-            $table->string('Judul_Webinar');
-            $table->date('Tanggal');
-            $table->string('Desc_Webinar');
-            $table->string('Pemateri_Webinar');
-            $table->string('Cover');
-            $table->enum('status', ['Akan datang', 'Berlangsung','Selesai']);
+            $table->string('title_category');
+            $table->string('desc_category');
             $table->timestamps();
+            
         });
     }
 
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('webinar');
+        //
     }
 };

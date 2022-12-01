@@ -17,13 +17,7 @@
                             id="exampleInputName1" placeholder="Name">
                     </div>
 
-                    {{-- <div class="form-group">
-                <label for="exampleSelectGender">Tipe Pengguna</label>
-                  <select class="form-control" name="select" id="exampleSelectGender">
-                    <option value="Super Admin" {{($editData->UserType=="Super Admin"? "selected":"")}}>Super Admin</option>
-                    <option value="Admin" {{($editData->UserType=="Admin"? "selected":"")}}            >Admin</option>
-                  </select>
-                </div> --}}
+
 
                     <div class="form-group">
                         <label for="exampleInputEmail3">Email address</label>
@@ -31,10 +25,24 @@
                             id="exampleInputEmail3" placeholder="Email">
                     </div>
 
-                    {{-- <div class="form-group">
-                <label for="exampleInputPassword4">Password</label>
-                <input type="password" name="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-              </div> --}}
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" name="password" value="{{ $editData->password }}" class="form-control"
+                            placeholder="Password" id="myInput">
+                        <input type="checkbox" onclick="myFunction()">Show Password
+                    </div>
+
+                    <script>
+                        function myFunction() {
+                            var x = document.getElementById("myInput");
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
+                        }
+                    </script>
+
 
                     <button type="submit" class="btn btn-primary mr-2">Submit</button>
                     <button class="btn btn-light">Cancel</button>

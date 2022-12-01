@@ -25,7 +25,6 @@
 
                                 <th>No</th>
                                 <th>Nama</th>
-
                                 <th>Email</th>
                                 <th>Action</th>
 
@@ -48,7 +47,6 @@
                             @foreach ($MyUser as $key => $User)
                                 <tr>
                                     <td scope="key"> {{ $key + $MyUser->firstItem() }}</td>
-
                                     <td>{{ $User->name }}</td>
                                     <td>{{ $User->email }}</td>
 

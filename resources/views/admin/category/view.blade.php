@@ -13,7 +13,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
-                <a href="{{ route('account.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
+                <a href="{{ route('category.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
                     Data</a>
             </div>
 
@@ -23,22 +23,22 @@
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Nama</th>
-                                <th>Email</th>
+                                <th>Judul</th>
+                                <th>Deskripsi</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($MyUser as $key => $User)
+
+                            @foreach ($category as $key => $ctgr)
                                 <tr>
-                                    <td scope="key"> {{ $key + $MyUser->firstItem() }}</td>
-                                    <td>{{ $User->name }}</td>
-                                    <td>{{ $User->email }}</td>
+                                    <td scope="key">{{ $key + $category->firstItem() }}</td>
+                                    <td>{{ $ctgr->title_category }}</td>
+                                    <td>{{ $ctgr->desc_category }}</td>
 
                                     <td>
-                                        <a href="{{ route('account.edit', $User->id) }}" class="btn btn-info">edit</a>
-                                        <a href="{{ route('account.delete', $User->id) }}" id="deleted"
-                                            class="btn btn-danger">delete</a>
+                                        <a href="" class="btn btn-info">edit</a>
+                                        <a href="" id="deleted" class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -46,7 +46,7 @@
 
                     </table>
 
-                    {{ $MyUser->links() }}
+                    {{ $category->links() }}
 
                 </div>
 

@@ -5,21 +5,23 @@ use App\Models\webinar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class WebinarController extends Controller
+class webinarController extends Controller
 {
+    //
     public function index()
     {
         $webinar = webinar::paginate(3);
-        return view('admin.webinar.view', compact('webinar'));
+        return view('admin.crud_webinar.webinar_view', compact('webinar'));
     }
 
 
-    public function webinarAdd()
+    public function WebinarAdd()
     {
-        return view('admin.webinar.add');
+
+        return view('admin.crud_webinar.webinar_add');
     }
 
-    public function webinarStore(Request $request)
+    public function WebinarStore(Request $request)
     {
           if ($request->hasFile('foto')) {
             $path= $request->file('foto')->store('webinarfoto');
@@ -30,21 +32,22 @@ class WebinarController extends Controller
         $judul =$request->judul;
         $date= $request->date;
         $pemateri= $request->pemateri;
-        $status= $request->status;
+        $record= $request->record;
         $desc= $request->desc;
 
         $data = new webinar();
-        $data->Judul_Webinar = $judul;
-        $data->Tanggal = $date;
-        $data->Pemateri_Webinar = $pemateri;
-        $data->status = $status;
-        $data->Cover = $path;
-        $data->Desc_Webinar = $desc;
+        $data->title = $judul;
+        $data->date = $date;
+        $data->speaker = $pemateri;
+        $data->link_record = $record;
+        $data->cover = $path;
+        $data->desc = $desc;
         $data->save();
         return redirect()->route('webinar.view')->with('info', 'Add User Succsess');    
     }
 
-    public function webinarEdit($id)
+
+    public function WebinarEdit($id)
     {
         //dd('hbh');
         // $editData = webinar::find($id);
@@ -52,43 +55,89 @@ class WebinarController extends Controller
         $webinar = webinar::find($id);
         $data = [
             'id' => $id,
-            'judul' => $webinar->Judul_Webinar,
-            'date' => $webinar->Tanggal,
-            'pemateri' => $webinar->Pemateri_Webinar,
-            'status' => $webinar->status,
-            'desc' => $webinar->Desc_Webinar,
-            'foto' => $webinar->Cover,
+            'judul' => $webinar->title,
+            'date' => $webinar->date,
+            'pemateri' => $webinar->speaker,
+            'record' => $webinar->link_record,
+            'desc' => $webinar->desc,
+            'foto' => $webinar->cover,
         ];
-        return View('admin.webinar.edit', $data);
+        return View('admin.crud_webinar.webinar_edit', $data);
     }
 
     //Update data
-    public function webinarUpdate(Request $request) {
+    public function WebinarUpdate(Request $request) {
 
         $id= $request->id;
         $judul =$request->judul;
         $date= $request->date;
         $pemateri= $request->pemateri;
-        $status= $request->status;
+        $record= $request->record;
         $desc= $request->desc;
 
         $data = webinar::find($id);
         if ($request->hasFile('foto')) {
             $path= $request->file('foto')->store('webinarfoto');
-            $data->Cover = $path;
+            $data->cover=$path;
         } 
 
-        // dd($data->Judul_Webinar);
-       
-        $data->Judul_Webinar = $judul;
-        $data->Tanggal = $date;
-        $data->Pemateri_Webinar = $pemateri;
-        $data->status = $status;
-        
-        $data->Desc_Webinar = $desc;
+        $data->title = $judul;
+        $data->date = $date;
+        $data->speaker = $pemateri;
+        $data->link_record = $record;
+        $data->cover = $path;
+        $data->desc = $desc;
+
         $data->save();
         return redirect()->route('webinar.view')->with('info', 'Add User Succsess');
 
     }
 
+    public function delete($id){
+        $webinar = webinar::find($id);
+        $webinar->delete();
+        return redirect()->route('webinar.view')->with('info', 'Delete User Succsess');
+
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// if ($request->hasFile('foto')) {
+        //     $path= $request->file('foto')->store('webinarfoto');
+        // } else {
+        //     $path= ' ';
+        // }
+        
+        // // dd($request->all());
+        // $data = new webinar();
+        // $data->Judul_Webinar = $request->judul;
+        // $data->Tanggal = $request->date;
+        // $data->Pemateri_Webinar= $request->pemateri;
+        // $data->status= $request->status;
+        // $data->Cover= $request->foto->path;
+        // $data->Desc_Webinar= $request->desc;
+        // // if ($request->hasFile('Cover')) {
+        // //     $request->file('Cover')->move(public_path('coverwebinar/'), $request->file('Cover')->getClientOriginalName());
+        // //     $data->Cover = $request->file('Cover')->getClientOriginalName();
+        // //     $data->save();
+        // // }
+        // $data->save();
+        // return redirect()->route('webinar.view')->with('info', 'Add User Succsess');
