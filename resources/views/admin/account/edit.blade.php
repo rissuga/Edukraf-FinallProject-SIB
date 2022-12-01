@@ -9,12 +9,14 @@
                     Tambahkan data admin baru untuk membantu tugasmu.
                 </p>
 
-                <form class="forms-sample" method="post" action="{{ route('admin.update', $editData->id) }}">
+                <form class="forms-sample" method="post" action="{{ route('account.update') }}">
                     @csrf
+                    @method('GET')
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>
-                        <input type="text" name="textName" value="{{ $editData->name }}" class="form-control"
+                        <input type="text" name="textName" value="{{ $textName }}" class="form-control"
                             id="exampleInputName1" placeholder="Name">
+                        <input type="hidden" name="id" value="{{ $id }}">
                     </div>
 
                     {{-- <div class="form-group">
@@ -27,7 +29,7 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" name="email" value="{{ $editData->email }}" class="form-control"
+                        <input type="email" name="email" value="{{ $email }}" class="form-control"
                             id="exampleInputEmail3" placeholder="Email">
                     </div>
 

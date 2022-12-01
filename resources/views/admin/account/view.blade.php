@@ -13,7 +13,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
-                <a href="{{ route('admin.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
+                <a href="{{ route('account.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
                     Data</a>
             </div>
 
@@ -22,39 +22,22 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-
                                 <th>No</th>
                                 <th>Nama</th>
-
                                 <th>Email</th>
                                 <th>Action</th>
-
-
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
-
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Action</th>
-
-
-                            </tr>
-                        </tfoot>
                         <tbody>
-
                             @foreach ($MyUser as $key => $User)
                                 <tr>
                                     <td scope="key"> {{ $key + $MyUser->firstItem() }}</td>
-
                                     <td>{{ $User->name }}</td>
                                     <td>{{ $User->email }}</td>
 
                                     <td>
-                                        <a href="{{ route('admin.edit', $User->id) }}" class="btn btn-info">edit</a>
-                                        <a href="{{ route('admin.delete', $User->id) }}" id="deleted"
+                                        <a href="{{ route('account.edit', $User->id) }}" class="btn btn-info">edit</a>
+                                        <a href="{{ route('account.delete', $User->id) }}" id="deleted"
                                             class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>

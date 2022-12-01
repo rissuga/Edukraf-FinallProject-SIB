@@ -9,7 +9,7 @@
                     Tambahkan data admin baru untuk membantu tugasmu.
                 </p>
 
-                <form class="forms-sample" method="post" action="{{ route('admin.store') }}">
+                <form class="forms-sample" method="post" action="{{ route('account.store') }}">
                     @csrf
                     <div class="form-group">
                         <label for="exampleInputName1">Name</label>

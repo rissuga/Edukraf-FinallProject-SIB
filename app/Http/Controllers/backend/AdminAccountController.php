@@ -37,7 +37,6 @@ class AdminAccountController extends Controller
         ]);
         // dd($request);
         $data = new User();
-        $data->UserType = $request->select;
         $data->name = $request->textName;
         $data->email = $request->email;
         $data->password = bcrypt($request->password);
@@ -61,7 +60,7 @@ class AdminAccountController extends Controller
         ]);
         // dd($request);
         $data = User::find($id);
-        $data->UserType = $request->select;
+   
         $data->name = $request->textName;
         $data->email = $request->email;
         // $data->password = bcrypt($request->password);

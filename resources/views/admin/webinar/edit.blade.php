@@ -22,6 +22,7 @@
                     <label class="col-sm-3 col-form-label">Judul Webinar</label>
                     <div class="col-sm-9">
                       <input type="text" name="judul" value="{{ $judul }}" class="form-control" />
+                      <input type="hidden" name="id" value="{{ $id }}">
                     </div>
                   </div>
                 </div>
