@@ -13,7 +13,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3">
                 <h6 class="m-0 font-weight-bold text-primary">DataTables Webinar</h6>
-                <a href="{{ route('webinar.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
+                <a href="{{ route('classroom.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
                     Data</a>
             </div>
 
@@ -23,12 +23,10 @@
                         <thead>
                             <tr>
                                 <th>No</th>
+                                <th>Kategori</th>
                                 <th>Judul</th>
-                                <th>Tanggal</th>
+                                <th>Link</th>
                                 <th>Deskripsi</th>
-                                <th>Pemateri</th>
-                                <th>Cover</th>
-                                <th>Record</th>
                                 <th width="150px">Action</th>
 
                             </tr>
@@ -36,25 +34,21 @@
 
                         <tbody>
 
-                            @foreach ($webinar as $key => $allwebinar)
+                            @foreach ($classroom as $key => $clsrm)
                                 <tr>
-                                    <td scope="key"> {{ $key + $webinar->firstItem() }}</td>
-                                    <td>{{ $allwebinar->title }}</td>
-                                    <td>{{ $allwebinar->date }}</td>
-                                    <td>{{ $allwebinar->desc }}</td>
-                                    <td>{{ $allwebinar->speaker }}</td>
-                                    <td><img src="/storage/{{ $allwebinar->cover }}" width="100px" alt=""></td>
-
-                                    <td>{{ $allwebinar->link_record }}</td>
-
+                                    <td scope="key"> {{ $key + $classroom->firstItem() }}</td>
+                                    <td>{{ $clsrm->category['title_category'] }}</td>
+                                    <td>{{ $clsrm->title_classroom }}</td>
+                                    <td>{{ $clsrm->link_classroom }}</td>
+                                    <td>{{ $clsrm->desc_classroom }}</td>
                                     <td>
                                         <div class="row">
-                                            <a href="{{ route('webinar.edit', $allwebinar->id) }}" class="btn btn-info"
+                                            <a href="{{ route('classroom.edit', $clsrm->id) }}" class="btn btn-info"
                                                 style="display: inline-block; 
-                           margin-left: 7px; ">edit</a>
-                                            <a href="{{ route('webinar.delete', $allwebinar->id) }}" class="btn btn-danger"
+                           margin-left: 7px;">edit</a>
+                                            <a href="{{ route('classroom.delete', $clsrm->id) }}" class="btn btn-danger"
                                                 style="display: inline-block; 
-                                                margin-left: 4px;">delete</a>
+                                                margin-left: 4px;  ">delete</a>
                                         </div>
 
                                     </td>
@@ -63,7 +57,7 @@
                         </tbody>
 
                     </table>
-                    {{ $webinar->links() }}
+                    {{ $classroom->links() }}
 
                 </div>
 

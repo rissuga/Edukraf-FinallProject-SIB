@@ -25,7 +25,8 @@
                                 <th>No</th>
                                 <th>Judul</th>
                                 <th>Deskripsi</th>
-                                <th>Action</th>
+                                <th>Daftar kelas</th>
+                                <th width="160px">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,11 +36,20 @@
                                     <td scope="key">{{ $key + $category->firstItem() }}</td>
                                     <td>{{ $ctgr->title_category }}</td>
                                     <td>{{ $ctgr->desc_category }}</td>
+                                    <td>
+                                        @foreach ($ctgr->classroom as $classrooms)
+                                            -{{ $classrooms['title_classroom'] }} <br>
+                                        @endforeach
+                                    </td>
 
                                     <td>
-                                        <a href="{{ route('category.edit', $ctgr->id) }}" class="btn btn-info">edit</a>
+                                        <a href="{{ route('category.edit', $ctgr->id) }}" class="btn btn-info"
+                                            style="display: inline-block; 
+                                            margin-left:1px;  ">edit</a>
                                         <a href="{{ route('category.delete', $ctgr->id) }}" id="deleted"
-                                            class="btn btn-danger">delete</a>
+                                            class="btn btn-danger"
+                                            style="display: inline-block; 
+                                            margin-left: 4px;  ">delete</a>
                                     </td>
                                 </tr>
                             @endforeach

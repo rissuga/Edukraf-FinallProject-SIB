@@ -85,7 +85,6 @@ class webinarController extends Controller
         $data->date = $date;
         $data->speaker = $pemateri;
         $data->link_record = $record;
-        $data->cover = $path;
         $data->desc = $desc;
 
         $data->save();

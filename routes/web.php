@@ -5,6 +5,7 @@ use App\Http\Controllers\backend\WebinarController;
 use App\Http\Controllers\backend\AdminAccountController;
 use App\Http\Controllers\backend\logoutController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\ClassroomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,4 +63,12 @@ Route::prefix('category')->group(function() {
     Route::get('/category/delete{id}', [CategoryController::class, 'categoryDelete'])->name('category.delete');
 });
 
+Route::prefix('classroom')->group(function() {
+    Route::get('/classroom/view', [ClassroomController::class, 'index'])->name('classroom.view');
+    Route::get('/classroom/add', [ClassroomController::class, 'add'])->name('classroom.add');
+    Route::post('/classroom/store', [ClassroomController::class, 'store'])->name('classroom.store');
+    Route::get('/classroom/edit{id}', [ClassroomController::class, 'edit'])->name('classroom.edit');
+    Route::put('/classroom/update{id}', [ClassroomController::class, 'update'])->name('classroom.update');
+    Route::get('/classroom/delete{id}', [ClassroomController::class, 'delete'])->name('classroom.delete');
 
+});

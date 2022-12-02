@@ -26,22 +26,12 @@
                                 <th>No</th>
                                 <th>Nama</th>
                                 <th>Email</th>
-                                <th>Action</th>
+                                <th width="160px">Action</th>
 
 
                             </tr>
                         </thead>
-                        <tfoot>
-                            <tr>
 
-                                <th>No</th>
-                                <th>Nama</th>
-                                <th>Email</th>
-                                <th>Action</th>
-
-
-                            </tr>
-                        </tfoot>
                         <tbody>
 
                             @foreach ($MyUser as $key => $User)
@@ -51,9 +41,13 @@
                                     <td>{{ $User->email }}</td>
 
                                     <td>
-                                        <a href="{{ route('admin.edit', $User->id) }}" class="btn btn-info">edit</a>
+                                        <a href="{{ route('admin.edit', $User->id) }}" class="btn btn-info"
+                                            style="display: inline-block; 
+                                            margin-left: 0px;">edit</a>
                                         <a href="{{ route('admin.delete', $User->id) }}" id="deleted"
-                                            class="btn btn-danger">delete</a>
+                                            class="btn btn-danger"
+                                            style="display: inline-block; 
+                                            margin-left: 4px;">delete</a>
                                     </td>
                                 </tr>
                             @endforeach
