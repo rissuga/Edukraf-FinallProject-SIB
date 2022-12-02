@@ -9,7 +9,7 @@ class CategoryController extends Controller
 {
     public function index()
     {
-        $category = category::paginate(2);
+        $category = category::paginate(5);
         return view('admin.category.view', compact('category'));
     }
 
@@ -21,34 +21,48 @@ class CategoryController extends Controller
 
     public function categoryStore(Request $request)
     {
-
-        // $validateData = $request->validate([
-        //     'title_category' => 'required',
-        //     'desc_category' => 'required'
-        // ]);
-        
-         // dd($request);
+        $title =$request->title;
+        $desc= $request->desc;
+      
         $data = new category();
-        $data->title_category = $request->title;
-        $data->desc_category = $request->desc;
+        $data->title_category = $title;
+        $data->desc_category = $desc;
         $data->save();
-        $request->session()->flash('msg',  "Data dengan  berhasil disimpan");
-        return redirect()->route('category.view')->with('info', 'Add User Succsess');
+        return redirect()->route('category.view')->with('info', 'Add User Succsess');   
     }
 
     public function categoryEdit($id)
     {
-        //dd('hbh');
-        // $editData = category::find($id);
-        // return view('admin.category.edit', compact('editData'));
+     
         $category = category::find($id);
         $data = [
-            'id' => $id,
-            'title' => $title_category->title,
-            'desc' => $desc_category->desc,
+            'id' =>$id,
+            'title' =>$category->title_category,
+            'desc' =>$category->desc_category,
         ];
         return View('admin.category.edit', $data);
     }
+
+    public function categoryUpdate(Request $request) 
+    {
+        $id= $request->id;
+        $title =$request->title;
+        $desc= $request->desc;
+
+        $data = category::find($id);
+        $data->title_category = $title;
+        $data->desc_category = $desc;
+        $data->save();
+        return redirect()->route('category.view')->with('info', 'Add User Succsess');   
+    }
+
+    public function categoryDelete($id){
+        $category = category::find($id);
+        $category->delete();
+        return redirect()->route('category.view')->with('info', 'Delete User Succsess');
+
+    }
+
 
     
 

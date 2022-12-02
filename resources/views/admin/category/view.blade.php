@@ -37,8 +37,9 @@
                                     <td>{{ $ctgr->desc_category }}</td>
 
                                     <td>
-                                        <a href="" class="btn btn-info">edit</a>
-                                        <a href="" id="deleted" class="btn btn-danger">delete</a>
+                                        <a href="{{ route('category.edit', $ctgr->id) }}" class="btn btn-info">edit</a>
+                                        <a href="{{ route('category.delete', $ctgr->id) }}" id="deleted"
+                                            class="btn btn-danger">delete</a>
                                     </td>
                                 </tr>
                             @endforeach

@@ -21,8 +21,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form class="form-sample" enctype="multipart/form-data" method="post"
-                        action="{{ route('category.store') }}">
+                    <form class="form-sample" method="post" action="{{ route('category.store') }}">
                         @csrf
                         <p class="card-description">
                             Data Kategori
