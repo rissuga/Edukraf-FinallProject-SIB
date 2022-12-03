@@ -26,9 +26,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" name="password" value="{{ $editData->password }}" class="form-control"
-                            placeholder="Password" id="myInput">
+                        <label for="exampleInputPassword4">Password Baru</label>
+                        <input type="password" name="password" class="form-control" placeholder="Password" id="myInput">
                         <input type="checkbox" onclick="myFunction()">Show Password
                     </div>
 

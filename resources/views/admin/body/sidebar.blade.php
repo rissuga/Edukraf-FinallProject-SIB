@@ -100,7 +100,7 @@
     <li class="nav-item">
         <a class="nav-link" href='{{ route('webinar.view') }}'>
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <span>Webinar</span></a>
     </li>
 
     <li class="nav-item">

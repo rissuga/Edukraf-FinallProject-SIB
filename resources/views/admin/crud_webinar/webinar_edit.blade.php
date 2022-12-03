@@ -12,7 +12,7 @@
                         @csrf
                         @method('GET')
                         <p class="card-description">
-                            Data Webinar
+                            Edit data Webinar
                         </p>
 
                         <div class="row">
@@ -52,7 +52,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Record</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="record" value="{{ $record }}"
+                                        <input type="url" name="record" value="{{ $record }}"
                                             class="form-control" />
                                     </div>
                                 </div>

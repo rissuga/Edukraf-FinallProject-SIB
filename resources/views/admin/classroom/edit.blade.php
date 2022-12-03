@@ -10,7 +10,7 @@
                         @csrf
                         @method('PUT')
                         <p class="card-description">
-                            Data Webinar
+                            Edit data kelas
                         </p>
 
                         <div class="row">
@@ -27,7 +27,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Link kelas</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="text" name="link_classroom"
+                                        <input class="form-control" type="url" name="link_classroom"
                                             value="{{ $classroom->link_classroom }}" placeholder="Link Kelas" />
                                     </div>
                                 </div>

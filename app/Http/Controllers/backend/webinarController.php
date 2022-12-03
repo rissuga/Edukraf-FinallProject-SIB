@@ -15,13 +15,13 @@ class webinarController extends Controller
     }
 
 
-    public function WebinarAdd()
+    public function add()
     {
 
         return view('admin.crud_webinar.webinar_add');
     }
 
-    public function WebinarStore(Request $request)
+    public function store(Request $request)
     {
           if ($request->hasFile('foto')) {
             $path= $request->file('foto')->store('webinarfoto');
@@ -47,7 +47,7 @@ class webinarController extends Controller
     }
 
 
-    public function WebinarEdit($id)
+    public function edit($id)
     {
         //dd('hbh');
         // $editData = webinar::find($id);
@@ -66,7 +66,7 @@ class webinarController extends Controller
     }
 
     //Update data
-    public function WebinarUpdate(Request $request) {
+    public function update(Request $request) {
 
         $id= $request->id;
         $judul =$request->judul;

@@ -13,13 +13,13 @@ class CategoryController extends Controller
         return view('admin.category.view', compact('category'));
     }
 
-    public function categoryAdd()
+    public function add()
     {
         // $MyUser = ViewUser::all();
         return view('admin.category.add');
     }
 
-    public function categoryStore(Request $request)
+    public function store(Request $request)
     {
         $title =$request->title;
         $desc= $request->desc;
@@ -31,7 +31,7 @@ class CategoryController extends Controller
         return redirect()->route('category.view')->with('info', 'Add User Succsess');   
     }
 
-    public function categoryEdit($id)
+    public function edit($id)
     {
      
         $category = category::find($id);
@@ -43,7 +43,7 @@ class CategoryController extends Controller
         return View('admin.category.edit', $data);
     }
 
-    public function categoryUpdate(Request $request) 
+    public function update(Request $request) 
     {
         $id= $request->id;
         $title =$request->title;
@@ -56,7 +56,7 @@ class CategoryController extends Controller
         return redirect()->route('category.view')->with('info', 'Add User Succsess');   
     }
 
-    public function categoryDelete($id){
+    public function delete($id){
         $category = category::find($id);
         $category->delete();
         return redirect()->route('category.view')->with('info', 'Delete User Succsess');

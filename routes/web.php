@@ -35,32 +35,32 @@ Route::middleware([
 Route::get('/account/logout', [logoutController::class, 'logout'])->name('admin.logout');
 
 Route::prefix('users')->group(function () {
-    Route::get('/admin/view/', [AdminAccountController::class, 'adminView'])->name('admin.view');
-    Route::get('/admin/add', [AdminAccountController::class, 'adminAdd'])->name('admin.add');
-    Route::post('/admin/store', [AdminAccountController::class, 'adminStore'])->name('admin.store');
-    Route::get('/admin/edit/{id}', [AdminAccountController::class, 'adminEdit'])->name('admin.edit');
-    Route::post('/admin/update/{id}', [AdminAccountController::class, 'adminUpdate'])->name('admin.update');
-    Route::get('/admin/delete/{id}', [AdminAccountController::class, 'adminDelete'])->name('admin.delete');
+    Route::get('/admin/view/', [AdminAccountController::class, 'index'])->name('admin.view');
+    Route::get('/admin/add', [AdminAccountController::class, 'add'])->name('admin.add');
+    Route::post('/admin/store', [AdminAccountController::class, 'store'])->name('admin.store');
+    Route::get('/admin/edit/{id}', [AdminAccountController::class, 'edit'])->name('admin.edit');
+    Route::post('/admin/update/{id}', [AdminAccountController::class, 'update'])->name('admin.update');
+    Route::get('/admin/delete/{id}', [AdminAccountController::class, 'delete'])->name('admin.delete');
 });
 
 
 Route::prefix('webinar')->group(function () {
     Route::get('/webinar/view', [WebinarController::class, 'index'])->name('webinar.view');
-    Route::get('/webinar/add', [WebinarController::class, 'WebinarAdd'])->name('webinar.add');
-    Route::post('/webinar/store', [WebinarController::class, 'WebinarStore'])->name('webinar.store');   
-    Route::get('/webinar/edit/{id}', [WebinarController::class, 'WebinarEdit'])->name('webinar.edit');
-    Route::get('/webinar/update', [WebinarController::class, 'WebinarUpdate'])->name('webinar.update');
+    Route::get('/webinar/add', [WebinarController::class, 'add'])->name('webinar.add');
+    Route::post('/webinar/store', [WebinarController::class, 'store'])->name('webinar.store');   
+    Route::get('/webinar/edit/{id}', [WebinarController::class, 'edit'])->name('webinar.edit');
+    Route::get('/webinar/update', [WebinarController::class, 'update'])->name('webinar.update');
     Route::get('/webinar/delete/{id}', [WebinarController::class, 'delete'])->name('webinar.delete');
 
 });
 
 Route::prefix('category')->group(function() {
     Route::get('/category/view', [CategoryController::class, 'index'])->name('category.view');
-    Route::get('/category/add', [CategoryController::class, 'categoryAdd'])->name('category.add');
-    Route::post('/category/store', [CategoryController::class, 'categoryStore'])->name('category.store');
-    Route::get('/category/edit{id}', [CategoryController::class, 'categoryEdit'])->name('category.edit');
-    Route::get('/category/update', [CategoryController::class, 'categoryUpdate'])->name('category.update');
-    Route::get('/category/delete{id}', [CategoryController::class, 'categoryDelete'])->name('category.delete');
+    Route::get('/category/add', [CategoryController::class, 'add'])->name('category.add');
+    Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
+    Route::get('/category/edit{id}', [CategoryController::class, 'edit'])->name('category.edit');
+    Route::get('/category/update', [CategoryController::class, 'update'])->name('category.update');
+    Route::get('/category/delete{id}', [CategoryController::class, 'delete'])->name('category.delete');
 });
 
 Route::prefix('classroom')->group(function() {

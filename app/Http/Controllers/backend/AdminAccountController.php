@@ -16,19 +16,19 @@ class AdminAccountController extends Controller
         return 'selmat ';
     }
     //
-    public function adminView()
+    public function index()
     {
         $MyUser = adminAccount::paginate(5);
         return view('admin.kelola_admin.admin_view', compact('MyUser'));
     }
 
-    public function adminAdd()
+    public function add()
     {
         // $MyUser = ViewUser::all();
         return view('admin.kelola_admin.admin_add');
     }
 
-    public function adminStore(Request $request)
+    public function store(Request $request)
     {
 
         $validateData = $request->validate([
@@ -47,14 +47,14 @@ class AdminAccountController extends Controller
         return redirect()->route('admin.view')->with('info', 'Add User Succsess');
     }
 
-    public function adminEdit($id)
+    public function edit($id)
     {
         // dd('hbh');
         $editData = User::find($id);
         return view('admin.kelola_admin.admin_edit', compact('editData'));
     }
 
-    public function adminUpdate(Request $request, $id)
+    public function update(Request $request, $id)
     {
        
         // $validateData = $request->validate([
@@ -72,7 +72,7 @@ class AdminAccountController extends Controller
         return redirect()->route('admin.view')->with('info', 'Update User Succsess');
     }
 
-    public function adminDelete($id)
+    public function delete($id)
     {
         // dd('hbh');
         $editData = User::find($id);

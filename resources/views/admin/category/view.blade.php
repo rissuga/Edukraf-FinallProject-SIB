@@ -12,7 +12,7 @@
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Admin</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Kategori Kelas Edukraf</h6>
                 <a href="{{ route('category.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
                     Data</a>
             </div>
@@ -25,7 +25,6 @@
                                 <th>No</th>
                                 <th>Judul</th>
                                 <th>Deskripsi</th>
-                                <th>Daftar kelas</th>
                                 <th width="160px">Action</th>
                             </tr>
                         </thead>
@@ -36,11 +35,11 @@
                                     <td scope="key">{{ $key + $category->firstItem() }}</td>
                                     <td>{{ $ctgr->title_category }}</td>
                                     <td>{{ $ctgr->desc_category }}</td>
-                                    <td>
+                                    {{-- <td>
                                         @foreach ($ctgr->classroom as $classrooms)
                                             -{{ $classrooms['title_classroom'] }} <br>
                                         @endforeach
-                                    </td>
+                                    </td> --}}
 
                                     <td>
                                         <a href="{{ route('category.edit', $ctgr->id) }}" class="btn btn-info"

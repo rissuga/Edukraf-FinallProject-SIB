@@ -13,7 +13,7 @@
                         @csrf
                         @method('GET')
                         <p class="card-description">
-                            Data Kategori
+                            Edit data kategori
                         </p>
 
                         <div class="row">
