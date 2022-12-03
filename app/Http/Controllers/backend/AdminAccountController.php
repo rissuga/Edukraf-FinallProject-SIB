@@ -19,13 +19,13 @@ class AdminAccountController extends Controller
     public function index()
     {
         $MyUser = adminAccount::paginate(5);
-        return view('admin.kelola_admin.admin_view', compact('MyUser'));
+        return view('admin.adminAccount.view', compact('MyUser'));
     }
 
     public function add()
     {
         // $MyUser = ViewUser::all();
-        return view('admin.kelola_admin.admin_add');
+        return view('admin.adminAccount.add');
     }
 
     public function store(Request $request)
@@ -51,7 +51,7 @@ class AdminAccountController extends Controller
     {
         // dd('hbh');
         $editData = User::find($id);
-        return view('admin.kelola_admin.admin_edit', compact('editData'));
+        return view('admin.adminAccount.edit', compact('editData'));
     }
 
     public function update(Request $request, $id)

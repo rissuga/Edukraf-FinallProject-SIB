@@ -5,20 +5,19 @@ use App\Models\webinar;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class webinarController extends Controller
+class WebinarController extends Controller
 {
-    //
     public function index()
     {
-        $webinar = webinar::paginate(3);
-        return view('admin.crud_webinar.webinar_view', compact('webinar'));
+        $webinar = webinar::paginate(5);
+        return view('admin.webinar.view', compact('webinar'));
     }
 
 
     public function add()
     {
 
-        return view('admin.crud_webinar.webinar_add');
+        return view('admin.webinar.add');
     }
 
     public function store(Request $request)
@@ -62,7 +61,7 @@ class webinarController extends Controller
             'desc' => $webinar->desc,
             'foto' => $webinar->cover,
         ];
-        return View('admin.crud_webinar.webinar_edit', $data);
+        return View('admin.webinar.edit', $data);
     }
 
     //Update data
@@ -99,44 +98,3 @@ class webinarController extends Controller
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if ($request->hasFile('foto')) {
-        //     $path= $request->file('foto')->store('webinarfoto');
-        // } else {
-        //     $path= ' ';
-        // }
-        
-        // // dd($request->all());
-        // $data = new webinar();
-        // $data->Judul_Webinar = $request->judul;
-        // $data->Tanggal = $request->date;
-        // $data->Pemateri_Webinar= $request->pemateri;
-        // $data->status= $request->status;
-        // $data->Cover= $request->foto->path;
-        // $data->Desc_Webinar= $request->desc;
-        // // if ($request->hasFile('Cover')) {
-        // //     $request->file('Cover')->move(public_path('coverwebinar/'), $request->file('Cover')->getClientOriginalName());
-        // //     $data->Cover = $request->file('Cover')->getClientOriginalName();
-        // //     $data->save();
-        // // }
-        // $data->save();
-        // return redirect()->route('webinar.view')->with('info', 'Add User Succsess');

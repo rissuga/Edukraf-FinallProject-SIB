@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\backend\WebinarController;
 use App\Http\Controllers\backend\AdminAccountController;
-use App\Http\Controllers\backend\logoutController;
+use App\Http\Controllers\backend\LogoutController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\ClassroomController;
 
@@ -32,7 +32,7 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get('/account/logout', [logoutController::class, 'logout'])->name('admin.logout');
+Route::get('/account/logout', [LogoutController::class, 'logout'])->name('admin.logout');
 
 Route::prefix('users')->group(function () {
     Route::get('/admin/view/', [AdminAccountController::class, 'index'])->name('admin.view');

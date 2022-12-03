@@ -78,7 +78,6 @@
         <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Login Screens:</h6>
-                <a class="collapse-item" href="{{ route('admin.view') }}">Kelola Akun Admin</a>
                 <a class="collapse-item" href="register.html"></a>
                 <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
                 <div class="collapse-divider"></div>
@@ -97,6 +96,12 @@
     </li>
 
     <!-- Nav Item - Tables -->
+
+    <li class="nav-item">
+        <a class="nav-link" href='{{ route('admin.view') }}'>
+            <i class="fas fa-fw fa-table"></i>
+            <span>Akun Admin</span></a>
+    </li>
     <li class="nav-item">
         <a class="nav-link" href='{{ route('webinar.view') }}'>
             <i class="fas fa-fw fa-table"></i>
