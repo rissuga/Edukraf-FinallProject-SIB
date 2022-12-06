@@ -19,8 +19,13 @@ use App\Http\Controllers\backend\ClassroomController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
+
+Route::get('/class', function () {
+    return view('frontend.class');
+});
+
 
 Route::middleware([
     'auth:sanctum',
@@ -33,6 +38,7 @@ Route::middleware([
 });
 
 Route::get('/account/logout', [LogoutController::class, 'logout'])->name('admin.logout');
+Route::get('/webinar/cancel', [WebinarController::class, 'cancel'])->name('webinar.cancel');
 
 Route::prefix('users')->group(function () {
     Route::get('/admin/view/', [AdminAccountController::class, 'index'])->name('admin.view');
@@ -45,17 +51,20 @@ Route::prefix('users')->group(function () {
 
 
 Route::prefix('webinar')->group(function () {
+     
     Route::get('/webinar/view', [WebinarController::class, 'index'])->name('webinar.view');
     Route::get('/webinar/add', [WebinarController::class, 'add'])->name('webinar.add');
     Route::post('/webinar/store', [WebinarController::class, 'store'])->name('webinar.store');   
     Route::get('/webinar/edit/{id}', [WebinarController::class, 'edit'])->name('webinar.edit');
     Route::get('/webinar/update', [WebinarController::class, 'update'])->name('webinar.update');
     Route::get('/webinar/delete/{id}', [WebinarController::class, 'delete'])->name('webinar.delete');
+  
 
 });
 
 Route::prefix('category')->group(function() {
     Route::get('/category/view', [CategoryController::class, 'index'])->name('category.view');
+    Route::get('/view', [CategoryController::class, 'tampil'])->name('category.tampil');
     Route::get('/category/add', [CategoryController::class, 'add'])->name('category.add');
     Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
     Route::get('/category/edit{id}', [CategoryController::class, 'edit'])->name('category.edit');
@@ -65,6 +74,7 @@ Route::prefix('category')->group(function() {
 
 Route::prefix('classroom')->group(function() {
     Route::get('/classroom/view', [ClassroomController::class, 'index'])->name('classroom.view');
+    Route::get('/view{id}', [ClassroomController::class, 'tampil'])->name('classroom.tampil');
     Route::get('/classroom/add', [ClassroomController::class, 'add'])->name('classroom.add');
     Route::post('/classroom/store', [ClassroomController::class, 'store'])->name('classroom.store');
     Route::get('/classroom/edit{id}', [ClassroomController::class, 'edit'])->name('classroom.edit');
@@ -72,3 +82,10 @@ Route::prefix('classroom')->group(function() {
     Route::get('/classroom/delete{id}', [ClassroomController::class, 'delete'])->name('classroom.delete');
 
 });
+
+
+
+
+
+
+

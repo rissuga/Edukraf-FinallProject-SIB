@@ -27,7 +27,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Link kelas</label>
                                     <div class="col-sm-9">
-                                        <input class="form-control" type="url" name="link_classroom"
+                                        <input class="form-control" type="text" name="link_classroom"
                                             placeholder="Link Kelas" required />
                                     </div>
                                 </div>

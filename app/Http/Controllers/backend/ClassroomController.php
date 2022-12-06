@@ -13,6 +13,13 @@ class ClassroomController extends Controller
         $classroom = classroom::paginate(5);
         return view('admin.classroom.view', compact('classroom'));
     }
+    
+    public function tampil(Request $request, $cat)
+    {
+        $tampil = classroom::where('category_id', $cat)->get();
+
+        return view('frontend.classvidio' ,compact('tampil'));
+    }
 
     public function add(){
         $category = category::select('id','title_category')->get();

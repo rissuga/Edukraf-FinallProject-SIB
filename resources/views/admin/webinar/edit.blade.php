@@ -88,7 +88,7 @@
                             <textarea class="form-control" id="exampleTextarea1" name="desc" rows="4">{{ $desc }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
+                        <a class="btn btn-light" href="{{ route('webinar.cancel') }}">Cancel</a>
 
                 </div>
                 </form>
