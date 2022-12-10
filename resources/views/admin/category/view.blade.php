@@ -25,7 +25,7 @@
                                 <th>No</th>
                                 <th>Judul</th>
                                 <th>Deskripsi</th>
-                                <th width="160px">Action</th>
+                                <th width="140px">Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -42,13 +42,13 @@
                                     </td> --}}
 
                                     <td>
-                                        <a href="{{ route('category.edit', $ctgr->id) }}" class="btn btn-info"
-                                            style="display: inline-block; 
-                                            margin-left:1px;  ">edit</a>
+                                        <a href="{{ route('category.edit', $ctgr->id) }}" class="btn btn-info btn-sm"
+                                            style="display:
+                                            inline-block; margin-left:5px; ">edit</a>
                                         <a href="{{ route('category.delete', $ctgr->id) }}" id="deleted"
-                                            class="btn btn-danger"
-                                            style="display: inline-block; 
-                                            margin-left: 4px;  ">delete</a>
+                                            class="btn btn-danger btn-sm"
+                                            style="display: inline-block;
+                                                margin-left: 5px;  ">delete</a>
                                     </td>
                                 </tr>
                             @endforeach

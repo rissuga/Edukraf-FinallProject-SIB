@@ -13,13 +13,27 @@ class ClassroomController extends Controller
         $classroom = classroom::paginate(5);
         return view('admin.classroom.view', compact('classroom'));
     }
-    
-    public function tampil(Request $request, $cat)
-    {
-        $tampil = classroom::where('category_id', $cat)->get();
 
-        return view('frontend.classvidio' ,compact('tampil'));
+    public function show( $cat)
+    {
+        $class = classroom::where('category_id', $cat)->get();
+        $category = category::find($cat);
+
+        return view('frontend.classvidio' ,compact('class','category'));
     }
+
+    public function detail($id)
+    {
+        $class= classroom::find($id);
+        return view('frontend.classdetail' ,compact('class'));
+    }
+    
+    // public function tampil(Request $request, $cat)
+    // {
+    //     $tampil = classroom::where('category_id', $cat)->get();
+
+    //     return view('frontend.classvidio' ,compact('tampil'));
+    // }
 
     public function add(){
         $category = category::select('id','title_category')->get();
@@ -64,6 +78,12 @@ class ClassroomController extends Controller
     $data->delete();
     return redirect()->route('classroom.view')->with('info', 'Update User Succsess');
 
+   }
+
+   public function detailAdmin($id) {
+    $classroom = classroom::find($id);
+    //$category = category::where('id', '!=', $classroom->category_id)->get(['id', 'title_category']);
+    return view('admin.classroom.detail' , compact('classroom'));
    }
 }
  

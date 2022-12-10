@@ -1,3 +1,15 @@
+<style>
+    .dtHorizontalExampleWrapper {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    #dtHorizontalExample th,
+    td {
+        white-space: nowrap;
+    }
+</style>
+
 @extends('admin.body.index')
 
 @section('content')
@@ -19,42 +31,49 @@
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered">
+                    <table id="dtHorizontalExample" class="table table-bordered table-hover table-fixed" cellspacing="0"
+                        width="100%">
                         <thead>
                             <tr>
-                                <th>No</th>
-                                <th>Judul</th>
-                                <th>Tanggal</th>
-                                <th>Deskripsi</th>
-                                <th>Pemateri</th>
-                                <th>Cover</th>
-                                <th>Record</th>
-                                <th width="150px">Action</th>
+                                <th th-sm>No</th>
+                                <th th-sm>Judul</th>
+                                <th th-sm>Tanggal</th>
+                                <th th-sm>status</th>
+                                <th th-sm>Pemateri</th>
+                                <th th-sm>Cover</th>
+                                <th th-sm width="170px">Action</th>
 
                             </tr>
                         </thead>
 
                         <tbody>
-
                             @foreach ($webinar as $key => $allwebinar)
                                 <tr>
                                     <td scope="key"> {{ $key + $webinar->firstItem() }}</td>
                                     <td>{{ $allwebinar->title }}</td>
                                     <td>{{ $allwebinar->date }}</td>
-                                    <td>{{ $allwebinar->desc }}</td>
+                                    <td>
+                                        @if (strtotime($allwebinar->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
+                                            <span>AKAN BERLANGSUNG</span>
+                                        @else
+                                            <span>SUDAH SELESAI</span>
+                                        @endif
+                                    </td>
+
                                     <td>{{ $allwebinar->speaker }}</td>
                                     <td><img src="/storage/{{ $allwebinar->cover }}" width="100px" alt=""></td>
-
-                                    <td>{{ $allwebinar->link_record }}</td>
-
                                     <td>
                                         <div class="row">
-                                            <a href="{{ route('webinar.edit', $allwebinar->id) }}" class="btn btn-info"
-                                                style="display: inline-block; 
-                           margin-left: 7px; ">edit</a>
-                                            <a href="{{ route('webinar.delete', $allwebinar->id) }}" class="btn btn-danger"
-                                                style="display: inline-block; 
-                                                margin-left: 4px;">delete</a>
+                                            <a href="{{ route('webinar.detail', $allwebinar->id) }}"
+                                                class="btn btn-info btn-sm"style="margin-left: 4px;">detail</a>
+                                            <a href="{{ route('webinar.edit', $allwebinar->id) }}"
+                                                class="btn btn-primary btn-sm"style="margin-left: 4px; ">edit</a>
+                                            <a href="{{ route('webinar.delete', $allwebinar->id) }}"
+                                                class="btn btn-danger btn-sm"style="margin-left: 4px;">delete</a>
+                                            <a href="">
+                                                <i class="bi bi-eye-fill"></i>
+                                            </a>
+
                                         </div>
 
                                     </td>
@@ -69,8 +88,13 @@
 
             </div>
         </div>
-
-
-
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#dtHorizontalExample').DataTable({
+                "scrollX": true
+            });
+            $('.dataTables_length').addClass('bs-select');
+        });
+    </script>
 @endsection

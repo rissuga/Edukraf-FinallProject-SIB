@@ -12,9 +12,16 @@ class CategoryController extends Controller
         $category = category::paginate(5);
         return view('admin.category.view', compact('category'));
     }
+
+    public function show()
+    {
+        $category = category::all();
+        return view('frontend.class', compact('category'));
+    }
     
     public function tampil()
     {
+       
         $category = category::all();
         return view('frontend.class', compact('category'));
     }

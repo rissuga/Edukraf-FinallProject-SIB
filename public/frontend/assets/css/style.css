@@ -23,6 +23,11 @@ a:hover {
   text-decoration: none;
 }
 
+#imgUNcover {
+  width: 100%;
+  object-fit: contain;
+}
+
 h1,
 h2,
 h3,
@@ -84,7 +89,7 @@ h6 {
   position: fixed;
   top: calc(50% - 30px);
   left: calc(50% - 30px);
-  border: 6px solid #5fcf80;
+  border: 6px solid #7c9ec2;
   border-top-color: #fff;
   border-bottom-color: #fff;
   border-radius: 50%;
@@ -419,7 +424,7 @@ h6 {
 
 #kelas {
   width: 100%;
-  height: 80vh;
+  height: 60vh;
   background-color: #7c9ec2;
   background-size: cover;
   position: relative;
@@ -833,7 +838,7 @@ section {
 }
 
 .courses .course-content h3 a:hover {
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 .courses .course-content p {
@@ -876,6 +881,28 @@ section {
 .courses .trainer .trainer-rank {
   font-size: 18px;
   color: #657a6d;
+}
+
+.courses .btn-sort {
+  background: #7C9EC2;
+  display: inline-block;
+  padding: 8px 35px;
+  border-radius: 6px;
+  color: #fff;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.courses .btn-sort:hover {
+  background: #5c7da0;
+}
+
+.courses .btn-wrap {
+  text-align: center;
 }
 
 /*--------------------------------------------------------------
@@ -1066,7 +1093,7 @@ section {
   display: block;
   width: 60px;
   height: 1px;
-  background: #5fcf80;
+  background: #000000;
   bottom: 0;
   left: 0;
 }

@@ -27,7 +27,7 @@
                                 <th>Judul</th>
                                 <th>Link</th>
                                 <th>Deskripsi</th>
-                                <th width="150px">Action</th>
+                                <th width="170px">Action</th>
 
                             </tr>
                         </thead>
@@ -43,12 +43,13 @@
                                     <td>{{ $clsrm->desc_classroom }}</td>
                                     <td>
                                         <div class="row">
-                                            <a href="{{ route('classroom.edit', $clsrm->id) }}" class="btn btn-info"
-                                                style="display: inline-block; 
-                           margin-left: 7px;">edit</a>
-                                            <a href="{{ route('classroom.delete', $clsrm->id) }}" class="btn btn-danger"
-                                                style="display: inline-block; 
-                                                margin-left: 4px;  ">delete</a>
+                                            <a href="{{ route('classroom.detail', $clsrm->id) }}"
+                                                class="btn btn-info  btn-sm" style="margin-left: 4px;  ">detail</a>
+                                            <a href="{{ route('classroom.edit', $clsrm->id) }}"
+                                                class="btn btn-primary btn-sm" style="margin-left: 4px;">edit</a>
+                                            <a href="{{ route('classroom.delete', $clsrm->id) }}"
+                                                class="btn btn-danger btn-sm" style="margin-left: 4px;  ">delete</a>
+
                                         </div>
 
                                     </td>

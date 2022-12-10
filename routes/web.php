@@ -18,70 +18,133 @@ use App\Http\Controllers\backend\ClassroomController;
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.index');
-});
+// Route::get('/', function () {
+//     return view('frontend.index');
+// });
 
-Route::get('/class', function () {
-    return view('frontend.class');
-});
+// Route::get('/class', function () {
+//     return view('frontend.class');
+// });
 
-
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified'
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('dashboard');
-});
-
-Route::get('/account/logout', [LogoutController::class, 'logout'])->name('admin.logout');
-Route::get('/webinar/cancel', [WebinarController::class, 'cancel'])->name('webinar.cancel');
-
-Route::prefix('users')->group(function () {
-    Route::get('/admin/view/', [AdminAccountController::class, 'index'])->name('admin.view');
-    Route::get('/admin/add', [AdminAccountController::class, 'add'])->name('admin.add');
-    Route::post('/admin/store', [AdminAccountController::class, 'store'])->name('admin.store');
-    Route::get('/admin/edit/{id}', [AdminAccountController::class, 'edit'])->name('admin.edit');
-    Route::post('/admin/update/{id}', [AdminAccountController::class, 'update'])->name('admin.update');
-    Route::get('/admin/delete/{id}', [AdminAccountController::class, 'delete'])->name('admin.delete');
+Route::prefix('')->group(function () {
+    Route::get('/', function () {return view('frontend.index');})->name('home');
+    Route::get('/category', [CategoryController::class, 'show'])->name('category');
+    Route::get('/webinar', [WebinarController::class, 'show'])->name('webinar');
+    Route::get('/webinar/detail{id}', [WebinarController::class, 'detail'])->name('webinardetail');
+    Route::get('/class{id}', [ClassroomController::class, 'show'])->name('class');
+    Route::get('/class/detail{id}', [ClassroomController::class, 'detail'])->name('classdetail');
 });
 
 
-Route::prefix('webinar')->group(function () {
-     
+
+
+Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+    Route::get('/dashboard', function () {return view('admin.dashboard');})->name('dashboard');
+
     Route::get('/webinar/view', [WebinarController::class, 'index'])->name('webinar.view');
     Route::get('/webinar/add', [WebinarController::class, 'add'])->name('webinar.add');
     Route::post('/webinar/store', [WebinarController::class, 'store'])->name('webinar.store');   
     Route::get('/webinar/edit/{id}', [WebinarController::class, 'edit'])->name('webinar.edit');
     Route::get('/webinar/update', [WebinarController::class, 'update'])->name('webinar.update');
     Route::get('/webinar/delete/{id}', [WebinarController::class, 'delete'])->name('webinar.delete');
-  
+    Route::get('/webinar/detail/{id}', [WebinarController::class, 'detailAdmin'])->name('webinar.detail');
+    Route::get('/webinar/cancel', [WebinarController::class, 'cancel'])->name('webinar.cancel');
 
-});
-
-Route::prefix('category')->group(function() {
     Route::get('/category/view', [CategoryController::class, 'index'])->name('category.view');
-    Route::get('/view', [CategoryController::class, 'tampil'])->name('category.tampil');
     Route::get('/category/add', [CategoryController::class, 'add'])->name('category.add');
     Route::post('/category/store', [CategoryController::class, 'store'])->name('category.store');
     Route::get('/category/edit{id}', [CategoryController::class, 'edit'])->name('category.edit');
     Route::get('/category/update', [CategoryController::class, 'update'])->name('category.update');
     Route::get('/category/delete{id}', [CategoryController::class, 'delete'])->name('category.delete');
-});
 
-Route::prefix('classroom')->group(function() {
     Route::get('/classroom/view', [ClassroomController::class, 'index'])->name('classroom.view');
-    Route::get('/view{id}', [ClassroomController::class, 'tampil'])->name('classroom.tampil');
     Route::get('/classroom/add', [ClassroomController::class, 'add'])->name('classroom.add');
     Route::post('/classroom/store', [ClassroomController::class, 'store'])->name('classroom.store');
     Route::get('/classroom/edit{id}', [ClassroomController::class, 'edit'])->name('classroom.edit');
     Route::put('/classroom/update{id}', [ClassroomController::class, 'update'])->name('classroom.update');
     Route::get('/classroom/delete{id}', [ClassroomController::class, 'delete'])->name('classroom.delete');
+    Route::get('/classroom/detail{id}', [ClassroomController::class, 'detail'])->name('classroom.detail');
+
+    Route::get('/account/view', [AdminAccountController::class, 'index'])->name('admin.view');
+    Route::get('/account/add', [AdminAccountController::class, 'add'])->name('admin.add');
+    Route::post('/account/store', [AdminAccountController::class, 'store'])->name('admin.store');
+    Route::get('/account/edit/{id}', [AdminAccountController::class, 'edit'])->name('admin.edit');
+    Route::post('/account/update/{id}', [AdminAccountController::class, 'update'])->name('admin.update');
+    Route::get('/account/delete/{id}', [AdminAccountController::class, 'delete'])->name('admin.delete');
+    
+    Route::get('/account/logout', [LogoutController::class, 'logout'])->name('admin.logout');
 
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Route::get('/webinar/cancel', [WebinarController::class, 'cancel'])->name('webinar.cancel');
+
+// Route::prefix('users')->middleware('auth')->group(function () {
+//     Route::get('/view', [AdminAccountController::class, 'index'])->name('admin.view');
+//     Route::get('/add', [AdminAccountController::class, 'add'])->name('admin.add');
+//     Route::post('/store', [AdminAccountController::class, 'store'])->name('admin.store');
+//     Route::get('/edit/{id}', [AdminAccountController::class, 'edit'])->name('admin.edit');
+//     Route::post('/update/{id}', [AdminAccountController::class, 'update'])->name('admin.update');
+//     Route::get('/delete/{id}', [AdminAccountController::class, 'delete'])->name('admin.delete');
+//     Route::get('/account/logout', [LogoutController::class, 'logout'])->name('admin.logout');
+// });
+
+
+// Route::prefix('webinar')->middleware('auth')->group(function () {
+     
+//     Route::get('view', [WebinarController::class, 'index'])->name('webinar.view');
+//     Route::get('add', [WebinarController::class, 'add'])->name('webinar.add');
+//     Route::post('store', [WebinarController::class, 'store'])->name('webinar.store');   
+//     Route::get('edit/{id}', [WebinarController::class, 'edit'])->name('webinar.edit');
+//     Route::get('update', [WebinarController::class, 'update'])->name('webinar.update');
+//     Route::get('delete/{id}', [WebinarController::class, 'delete'])->name('webinar.delete');
+//     Route::get('detail/{id}', [WebinarController::class, 'detail'])->name('webinar.detail');
+// });
+
+// Route::prefix('category')->middleware('auth')->group(function() {
+//     Route::get('view', [CategoryController::class, 'index'])->name('category.view');
+//     Route::get('/tampil', [CategoryController::class, 'tampil'])->name('category.tampil');
+//     Route::get('add', [CategoryController::class, 'add'])->name('category.add');
+//     Route::post('store', [CategoryController::class, 'store'])->name('category.store');
+//     Route::get('edit{id}', [CategoryController::class, 'edit'])->name('category.edit');
+//     Route::get('update', [CategoryController::class, 'update'])->name('category.update');
+//     Route::get('delete{id}', [CategoryController::class, 'delete'])->name('category.delete');
+// });
+
+// Route::prefix('classroom')->middleware('auth')->group(function() {
+//     Route::get('view', [ClassroomController::class, 'index'])->name('classroom.view');
+//     Route::get('/tampil/{id}', [ClassroomController::class, 'tampil'])->name('classroom.tampil');
+//     Route::get('add', [ClassroomController::class, 'add'])->name('classroom.add');
+//     Route::post('store', [ClassroomController::class, 'store'])->name('classroom.store');
+//     Route::get('edit{id}', [ClassroomController::class, 'edit'])->name('classroom.edit');
+//     Route::put('update{id}', [ClassroomController::class, 'update'])->name('classroom.update');
+//     Route::get('delete{id}', [ClassroomController::class, 'delete'])->name('classroom.delete');
+//     Route::get('detail{id}', [ClassroomController::class, 'detail'])->name('classroom.detail');
+
+// });
 
 
 
