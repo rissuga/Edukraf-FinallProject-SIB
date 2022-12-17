@@ -582,6 +582,10 @@ pre code {
   }
 }
 
+#alert  {
+  margin: 0 auto; width:500px; height:auto;
+}
+
 .row {
   display: flex;
   flex-wrap: wrap;

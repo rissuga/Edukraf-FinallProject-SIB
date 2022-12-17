@@ -24,7 +24,7 @@
                     <form class="form-sample" method="post" action="{{ route('category.store') }}">
                         @csrf
                         <p class="card-description">
-                            Tambah Data Kategori
+                            Lengkapi form di bawah untuk menambah data kategori kelas
                         </p>
 
                         <div class="row">
@@ -44,7 +44,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
+                        <a class="btn btn-light" href="{{ route('category.cancel') }}">Cancel</a>
 
                 </div>
 

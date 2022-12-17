@@ -11,7 +11,7 @@
                         action="{{ route('webinar.store') }}">
                         @csrf
                         <p class="card-description">
-                            Data Webinar
+                            Lengkapi form di bawah untuk menambah data webinar.
                         </p>
 
                         <div class="row">
@@ -45,25 +45,54 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Record</label>
+                                    <label class="col-sm-3 col-form-label">Link Webinar</label>
                                     <div class="col-sm-9">
-                                        <input type="url" name="record" class="form-control" />
+                                        <input type="url" name="linkWebinar" class="form-control" required />
                                     </div>
                                 </div>
                             </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jam mulai</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="timeStart" class="form-control" placeholder="18.00"
+                                            required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jam Selesai</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="timeEnd" class="form-control" placeholder="20.00"
+                                            required />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
 
 
                         <div class="row">
                             <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Cover</label>
-                                    <input class="form-control" type="file" name="foto" accept="image/*"
-                                        placeholder="Upload cover" required>
+                                <div class="form-group row">
+                                    <label for="exampleInputName1" class="col-sm-3 col-form-label">Cover</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" type="file" name="foto" accept="image/*"
+                                            placeholder="Upload cover" required>
+                                    </div>
                                 </div>
-
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">record</label>
+                                    <div class="col-sm-9">
+                                        <input type="url" name="record" class="form-control" />
+                                    </div>
+                                </div>
                             </div>
                         </div>
 

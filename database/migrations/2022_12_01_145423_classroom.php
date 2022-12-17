@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('category_id');
             $table->string('title_classroom');
-            $table->string('desc_classroom');
+            $table->text('desc_classroom');
             $table->string('link_classroom');
+            $table->string('source');
             $table->foreign('category_id')->references('id')->on('category')->constrained()->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });

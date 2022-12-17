@@ -16,7 +16,7 @@ class ClassroomController extends Controller
 
     public function show( $cat)
     {
-        $class = classroom::where('category_id', $cat)->get();
+        $class = classroom::where('category_id', $cat)->paginate(9);
         $category = category::find($cat);
 
         return view('frontend.classvidio' ,compact('class','category'));
@@ -25,7 +25,8 @@ class ClassroomController extends Controller
     public function detail($id)
     {
         $class= classroom::find($id);
-        return view('frontend.classdetail' ,compact('class'));
+        $select = classroom::paginate(3);
+        return view('frontend.classdetail' ,compact('class','select'));
     }
     
     // public function tampil(Request $request, $cat)
@@ -48,6 +49,7 @@ class ClassroomController extends Controller
         $data->link_classroom = $request->link_classroom;
         $data->category_id = $request->category_id;  
         $data->desc_classroom = $request->desc;
+        $data->source = $request->source;
         $data->save();
         return redirect()->route('classroom.view')->with('info', 'Update User Succsess');
     }
@@ -67,6 +69,7 @@ class ClassroomController extends Controller
     $data->link_classroom = $request->link_classroom;
     $data->category_id = $request->category_id;  
     $data->desc_classroom = $request->desc;
+    $data->source = $request->source;
     $data->save();
     return redirect()->route('classroom.view')->with('info', 'Update User Succsess');
 
@@ -79,6 +82,10 @@ class ClassroomController extends Controller
     return redirect()->route('classroom.view')->with('info', 'Update User Succsess');
 
    }
+
+   public function cancel(){
+    return redirect()->route('classroom.view');
+}
 
    public function detailAdmin($id) {
     $classroom = classroom::find($id);

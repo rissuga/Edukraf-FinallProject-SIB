@@ -75,7 +75,11 @@ class CategoryController extends Controller
         return redirect()->route('category.view')->with('info', 'Delete User Succsess');
 
     }
+    
+    public function cancel(){
+        return redirect()->route('category.view');
 
+    }
 
     
 

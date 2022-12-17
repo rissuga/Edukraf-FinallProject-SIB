@@ -6,14 +6,14 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Kategori</h4>
+                    <h4 class="card-title">Data Kategori Kelas</h4>
 
                     <form class="form-sample" enctype="multipart/form-data" method="post"
                         action="{{ route('category.update') }}">
                         @csrf
                         @method('GET')
                         <p class="card-description">
-                            Edit data kategori
+                            Edit form di bawah untuk melakukan perubahan data kategori kelas
                         </p>
 
                         <div class="row">
@@ -36,8 +36,7 @@
                         </div>
 
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
-
+                        <a class="btn btn-light" href="{{ route('category.cancel') }}">Cancel</a>
                 </div>
 
 

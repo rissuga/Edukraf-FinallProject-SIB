@@ -12,7 +12,7 @@
                         @csrf
                         @method('GET')
                         <p class="card-description">
-                            Edit data Webinar
+                            Edit form di bawah untuk melakukan perubahan data webinar.
                         </p>
 
                         <div class="row">
@@ -47,7 +47,56 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Link Webinar</label>
+                                    <div class="col-sm-9">
+                                        <input type="url" name="linkWebinar" value="{{ $linkWebinar }}"
+                                            class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jam mulai</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="timeStart" value="{{ $timeStart }}"
+                                            class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Jam Selesai</label>
+                                    <div class="col-sm-9">
+                                        <input type="text" name="timeEnd" value="{{ $timeEnd }}"
+                                            class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label for="exampleInputName1" class="col-sm-3 col-form-label">Cover</label>
+                                    <div class="col-sm-9">
+                                        <br>
+                                        @if ($foto)
+                                            <img src="{{ asset('storage/' . $foto) }}" alt="foto" class="img-thumbnail"
+                                                style="width: 80px; height:80px;">
+                                        @else
+                                            <span class="badge badge-danger"> Belum ada foto </span>
+                                        @endif
+                                        <br>
+                                        <input class="form-control" type="file" name="foto" accept="image/*"
+                                            placeholder="Upload cover">
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Record</label>
@@ -58,30 +107,6 @@
                                 </div>
                             </div>
                         </div>
-
-
-
-
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="exampleInputName1">Cover</label>
-                                    <br>
-                                    @if ($foto)
-                                        <img src="{{ asset('storage/' . $foto) }}" alt="foto" class="img-thumbnail"
-                                            style="width: 80px; height:80px;">
-                                    @else
-                                        <span class="badge badge-danger"> Belum ada foto </span>
-                                    @endif
-                                    <br>
-                                    <input class="form-control" type="file" name="foto" accept="image/*"
-                                        placeholder="Upload cover">
-                                </div>
-
-                            </div>
-                        </div>
-
-
 
                         <div class="form-group">
                             <label for="exampleTextarea1">Textarea</label>

@@ -3,31 +3,38 @@
     <section id="kelas">
         <div class="row mt-5">
             <div class="col-md-12 pt-5 ">
-                <h1 class="text-center">Edukraf Kelas</h1>
-                <h5 class="text-center mt-3">Gali pengetahuan yang selama ini belum kamu pahami dengan menyimak
-                    <br> video penjelasan yang telah kami bagikan.
+                <h1 class="text-center">{{ $category->title_category ?? 'None' }}</h1>
+                {{-- <h1 class="text-center">{{ $category->title_category ?? 'None' }}</h1> --}}
+                <h5 class="text-center mt-3">{{ $category->desc_category ?? 'None' }}
                 </h5>
-                <div class="row justify-content-center mt-4">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6">
-                        <form>
-                            <div class="search">
-                                <i class="fa fa-search"></i>
-                                <input type="text" class="form-control" placeholder="Cari">
-                                <button class="btn btn-primary">Search</button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-3"></div>
-
-
-                </div>
-
             </div>
         </div>
     </section>
 
     <main id="main">
+        @php
+            function substrwords($text, $maxchar, $end = '...')
+            {
+                if (strlen($text) > $maxchar || $text == '') {
+                    $words = preg_split('/\s/', $text);
+                    $output = '';
+                    $i = 0;
+                    while (1) {
+                        $length = strlen($output) + strlen($words[$i]);
+                        if ($length > $maxchar) {
+                            break;
+                        } else {
+                            $output .= ' ' . $words[$i];
+                            ++$i;
+                        }
+                    }
+                    $output .= $end;
+                } else {
+                    $output = $text;
+                }
+                return $output;
+            }
+        @endphp
 
         <!-- ======= Courses Section ======= -->
         <section id="courses" class="courses">
@@ -37,68 +44,25 @@
 
                     @foreach ($class as $key => $clsrm)
                         <div class="col-lg-4 d-flex align-items-stretch mt-4">
-                            <a href="{{ route('classdetail', $clsrm->id) }}">
-                                <div class="course-item">
-                                    <img src="https://img.youtube.com/vi/{{ $clsrm->link_classroom }}/0.jpg"
-                                        class="img-fluid" alt="">
-                                    <div class="course-content">
+                            <div class="card h-100">
+                                <a href="{{ route('classdetail', $clsrm->id) }}">
+                                    <div class="course-item">
+                                        <img src="https://img.youtube.com/vi/{{ $clsrm->link_classroom }}/0.jpg"
+                                            class="img-fluid" alt="">
+                                        <div class="course-content">
 
-                                        <h3><a href="course-details.html">{{ $clsrm->title_classroom }}</a></h3>
-                                        <p>{{ $clsrm->desc_classroom }}</p>
+                                            <h3>{{ $clsrm->title_classroom }}</h3>
+                                            <p> sumber : {{ $clsrm->source }}</p>
+                                            <p>{{ substrwords($clsrm->desc_classroom, 100) }}</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
+                            </div>
+
                         </div> <!-- End Course Item-->
                     @endforeach
-                    {{-- <div class="col-lg-4 d-flex align-items-stretch mt-4">
-                    <div class="course-item">
-                        <div class="row " style="height: 13rem;">
-                            <iframe width="560" height="200" src="https://www.youtube.com/embed/RuO4VjJe2cA"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="course-content">
-
-                            <h3><a href="course-details.html">Copywriting</a></h3>
-                            <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae
-                                dolores dolorem tempore.</p>
-                        </div>
-                    </div>
-                </div> <!-- End Course Item-->
-                <div class="col-lg-4 d-flex align-items-stretch mt-4">
-                    <div class="course-item">
-                        <div class="row " style="height: 13rem;">
-                            <iframe width="560" height="200" src="https://www.youtube.com/embed/RuO4VjJe2cA"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="course-content">
-
-                            <h3><a href="course-details.html">Copywriting</a></h3>
-                            <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae
-                                dolores dolorem tempore.</p>
-                        </div>
-                    </div>
-                </div> <!-- End Course Item-->
-                <div class="col-lg-4 d-flex align-items-stretch mt-4">
-                    <div class="course-item">
-                        <div class="row " style="height: 13rem;">
-                            <iframe width="560" height="200" src="https://www.youtube.com/embed/RuO4VjJe2cA"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
-                        </div>
-                        <div class="course-content">
-
-                            <h3><a href="course-details.html">Copywriting</a></h3>
-                            <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae
-                                dolores dolorem tempore.</p>
-                        </div>
-                    </div>
-                </div> <!-- End Course Item--> --}}
-
                 </div>
+                <div class="row mt-5">{{ $class->links('vendor.pagination.bootstrap-5') }}</div>
 
             </div>
         </section>

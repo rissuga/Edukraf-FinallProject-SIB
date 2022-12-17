@@ -30,14 +30,24 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="row">
-                                <label class="col-sm-2" style="font-weight: bold">Link Kelas </label>
-                                <div class="col-sm-7">
+                                <label class="col-sm-4" style="font-weight: bold">Sumber</label>
+                                <div class="col-sm-8">
+                                    <p> : {{ $classroom->source }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <label class="col-sm-4" style="font-weight: bold">Link Kelas </label>
+                                <div class="col-sm-8">
                                     <p> : {{ $classroom->link_classroom }}</p>
                                 </div>
                             </div>
                         </div>
+
+
                     </div>
                     <div class="row">
                         <div class="col-md-12">

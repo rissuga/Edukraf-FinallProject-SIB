@@ -10,7 +10,7 @@
                         @csrf
                         @method('PUT')
                         <p class="card-description">
-                            Edit data kelas
+                            Edit form di bawah untuk melakukan perubahan data kelas.
                         </p>
 
                         <div class="row">
@@ -50,6 +50,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Sumber</label>
+                                    <div class="col-sm-9">
+                                        <input class="form-control" type="text" name="source"
+                                            value="{{ $classroom->source }}" placeholder="youtube channel/pemateri"
+                                            required />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="form-group">
@@ -57,7 +67,7 @@
                             <textarea class="form-control" id="exampleTextarea1" name="desc" rows="4">{{ $classroom->desc_classroom }}</textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <button class="btn btn-light">Cancel</button>
+                        <a class="btn btn-light" href="{{ route('classroom.cancel') }}">Cancel</a>
 
                 </div>
                 </form>

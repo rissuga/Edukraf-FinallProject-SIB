@@ -17,10 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->date('date');
-            $table->string('desc');
+            $table->text('desc');
             $table->string('speaker');
             $table->string('cover');
             $table->string('link_record')->nullable();
+            $table->string('link_webinar')->nullable();
+            $table->string('time_start')->nullable();
+            $table->string('time_end')->nullable();
             $table->timestamps();
         });  
     }

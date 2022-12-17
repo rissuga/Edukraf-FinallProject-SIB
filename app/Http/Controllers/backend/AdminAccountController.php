@@ -63,11 +63,9 @@ class AdminAccountController extends Controller
         // ]);
         // dd($request);
         $data = User::find($id);
-
         $data->name = $request->textName;
         $data->email = $request->email;
-      
-        $data->password = $request->password;
+        $data->password = bcrypt($request->password);
         $data->save();
         return redirect()->route('admin.view')->with('info', 'Update User Succsess');
     }
@@ -79,4 +77,10 @@ class AdminAccountController extends Controller
         $editData->delete();
         return redirect()->route('admin.view')->with('info', 'Delete User Succsess');
     }
+
+    public function cancel(){
+        return redirect()->route('admin.view');
+
+    }
+
 }

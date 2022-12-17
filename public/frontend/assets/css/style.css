@@ -23,11 +23,6 @@ a:hover {
   text-decoration: none;
 }
 
-#imgUNcover {
-  width: 100%;
-  object-fit: contain;
-}
-
 h1,
 h2,
 h3,
@@ -35,6 +30,13 @@ h4,
 h5,
 h6 {
   font-family: "Raleway", sans-serif;
+}
+
+.anchor{
+  display: block;
+  height: 115px; /*same height as header*/
+  margin-top: -115px; /*same height as header*/
+  visibility: hidden;
 }
 
 /*--------------------------------------------------------------
@@ -47,7 +49,7 @@ h6 {
   right: 15px;
   bottom: 15px;
   z-index: 996;
-  background: #5fcf80;
+  background: #7C9EC2;
   width: 40px;
   height: 40px;
   border-radius: 50px;
@@ -61,7 +63,7 @@ h6 {
 }
 
 .back-to-top:hover {
-  background: #7ed899;
+  background: #5f7994;
   color: #fff;
 }
 
@@ -69,6 +71,8 @@ h6 {
   visibility: visible;
   opacity: 1;
 }
+
+
 
 /*--------------------------------------------------------------
 # Preloader
@@ -163,10 +167,11 @@ h6 {
 */
 .get-started-btn {
   margin-left: 22px;
-  background: #5fcf80;
+  background: #7C9EC2;
   color: #fff;
   border-radius: 50px;
-  padding: 8px 25px;
+  /* padding: 8px 25px; */
+  padding-top: 0px;
   white-space: nowrap;
   transition: 0.3s;
   font-size: 14px;
@@ -218,6 +223,7 @@ h6 {
   font-weight: 500;
   color: #fff;
   white-space: nowrap;
+  font-style: normal;
   transition: 0.3s;
 }
 
@@ -269,7 +275,7 @@ h6 {
 .navbar .dropdown ul a:hover,
 .navbar .dropdown ul .active:hover,
 .navbar .dropdown ul li:hover>a {
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 .navbar .dropdown:hover>ul {
@@ -369,7 +375,7 @@ h6 {
 .navbar-mobile a:hover,
 .navbar-mobile .active,
 .navbar-mobile li:hover>a {
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 .navbar-mobile .getstarted,
@@ -404,7 +410,7 @@ h6 {
 .navbar-mobile .dropdown ul a:hover,
 .navbar-mobile .dropdown ul .active:hover,
 .navbar-mobile .dropdown ul li:hover>a {
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 .navbar-mobile .dropdown>.dropdown-active {
@@ -459,6 +465,17 @@ h6 {
   font-family: "Poppins", sans-serif;
 }
 
+#hero p{
+  margin: 0;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-size: 18px;
+  font-weight: 400;
+  /* line-height: 56px; */
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+}
+
 #kelas h1 {
   margin: 0;
   font-size: 48px;
@@ -488,14 +505,15 @@ h6 {
   padding: 10px 35px;
   border-radius: 50px;
   transition: 0.5s;
-  margin-top: 30px;
+  margin-top: 4px;
+  margin-bottom: 4px;
   border: 2px solid #fff;
   color: #fff;
 }
 
 #hero .btn-get-started:hover {
-  background: #5fcf80;
-  border: 2px solid #5fcf80;
+  background: #7C9EC2;
+  border: 2px solid #7C9EC2;
 }
 
 @media (min-width: 1024px) {
@@ -608,7 +626,7 @@ section {
   margin: 0;
   margin: 0;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
   font-family: "Poppins", sans-serif;
   color: #37423b;
@@ -617,7 +635,7 @@ section {
 .breadcrumbs {
   margin-top: 73px;
   text-align: center;
-  background: #5fcf80;
+  background: #7C9EC2;
   padding: 30px 0;
   color: #fff;
 }
@@ -658,11 +676,11 @@ section {
 .about .content ul i {
   font-size: 20px;
   padding-right: 4px;
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 .about .content .learn-more-btn {
-  background: #5fcf80;
+  background: #7C9EC2;
   color: #fff;
   border-radius: 50px;
   padding: 8px 25px 9px 25px;
@@ -675,6 +693,11 @@ section {
 .about .content .learn-more-btn:hover {
   background: #3ac162;
   color: #fff;
+}
+
+.about .list-group a {
+  color: #ffffff;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {
@@ -694,7 +717,7 @@ section {
 .counts .counters span {
   font-size: 48px;
   display: block;
-  color: #5fcf80;
+  color: #7C9EC2;
   font-weight: 700;
 }
 
@@ -712,7 +735,7 @@ section {
 --------------------------------------------------------------*/
 .why-us .content {
   padding: 30px;
-  background: #5fcf80;
+  background: #7C9EC2;
   border-radius: 4px;
   color: #fff;
 }
@@ -741,7 +764,7 @@ section {
 }
 
 .why-us .content .more-btn:hover {
-  color: #5fcf80;
+  color: #7C9EC2;
   background: #fff;
 }
 
@@ -756,7 +779,7 @@ section {
 .why-us .icon-boxes .icon-box i {
   font-size: 32px;
   padding: 18px;
-  color: #5fcf80;
+  color: #7C9EC2;
   margin-bottom: 30px;
   background: #ecf9f0;
   border-radius: 50px;
@@ -848,7 +871,7 @@ section {
 
 .courses .course-content h4 {
   font-size: 14px;
-  background: #5fcf80;
+  background: #7C9EC2;
   padding: 7px 14px;
   color: #fff;
   margin: 0;
@@ -883,82 +906,7 @@ section {
   color: #657a6d;
 }
 
-.courses .btn-sort {
-  background: #7C9EC2;
-  display: inline-block;
-  padding: 8px 35px;
-  border-radius: 6px;
-  color: #fff;
-  transition: none;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: "Raleway", sans-serif;
-  font-weight: 600;
-  transition: 0.3s;
-}
 
-.courses .btn-sort:hover {
-  background: #5c7da0;
-}
-
-.courses .btn-wrap {
-  text-align: center;
-}
-
-/*--------------------------------------------------------------
-# Trainers
---------------------------------------------------------------*/
-.trainers .member {
-  text-align: center;
-  margin-bottom: 20px;
-  background: #fff;
-  border: 1px solid #eef0ef;
-}
-
-.trainers .member img {
-  margin: -1px -1px 30px -1px;
-}
-
-.trainers .member .member-content {
-  padding: 0 20px 30px 20px;
-}
-
-.trainers .member h4 {
-  font-weight: 700;
-  margin-bottom: 2px;
-  font-size: 18px;
-}
-
-.trainers .member span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
-}
-
-.trainers .member p {
-  padding-top: 10px;
-  font-size: 14px;
-  font-style: italic;
-  color: #aaaaaa;
-}
-
-.trainers .member .social {
-  margin-top: 15px;
-}
-
-.trainers .member .social a {
-  color: #7e9486;
-  transition: 0.3s;
-}
-
-.trainers .member .social a:hover {
-  color: #5fcf80;
-}
-
-.trainers .member .social i {
-  font-size: 18px;
-  margin: 0 2px;
-}
 
 /*--------------------------------------------------------------
 # Testimonials
@@ -1005,7 +953,7 @@ section {
 
 .testimonials .testimonial-item .quote-icon-left,
 .testimonials .testimonial-item .quote-icon-right {
-  color: #c1ecce;
+  color: #7C9EC2;
   font-size: 26px;
 }
 
@@ -1022,7 +970,7 @@ section {
   top: 10px;
 }
 
-.testimonials .testimonial-item p {
+.testimonials .testimonial-item p,ul {
   font-style: italic;
   margin: 15px auto 15px auto;
 }
@@ -1037,11 +985,11 @@ section {
   height: 12px;
   background-color: #fff;
   opacity: 1;
-  border: 1px solid #5fcf80;
+  border: 1px solid #7C9EC2;
 }
 
 .testimonials .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #5fcf80;
+  background-color: #7C9EC2;
 }
 
 @media (max-width: 767px) {
@@ -1144,12 +1092,12 @@ section {
 }
 
 .cource-details-tabs .nav-link:hover {
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 .cource-details-tabs .nav-link.active {
-  color: #5fcf80;
-  border-color: #5fcf80;
+  color: #7C9EC2;
+  border-color: #7C9EC2;
 }
 
 .cource-details-tabs .tab-pane.active {
@@ -1180,7 +1128,7 @@ section {
 
   .cource-details-tabs .nav-link.active {
     color: #fff;
-    background: #5fcf80;
+    background: #7C9EC2;
   }
 }
 
@@ -1241,7 +1189,7 @@ section {
 }
 
 .events .read-more a:hover {
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 .events .card:hover img {
@@ -1249,11 +1197,11 @@ section {
 }
 
 .events .card:hover .card-body {
-  border-color: #5fcf80;
+  border-color: #7C9EC2;
 }
 
 .events .card:hover .card-body .card-title a {
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 /*--------------------------------------------------------------
@@ -1281,7 +1229,7 @@ section {
 
 .pricing h4 {
   font-size: 36px;
-  color: #5fcf80;
+  color: #7C9EC2;
   font-weight: 600;
   font-family: "Poppins", sans-serif;
   margin-bottom: 20px;
@@ -1313,7 +1261,7 @@ section {
 }
 
 .pricing ul i {
-  color: #5fcf80;
+  color: #7C9EC2;
   font-size: 18px;
   padding-right: 4px;
 }
@@ -1330,10 +1278,14 @@ section {
   text-align: center;
 }
 
+.courses .btn-wrap {
+  background: #f8f8f8;
+  text-align: center;
+}
+
 .pricing .btn-buy {
-  background: #5fcf80;
+  background: #7C9EC2;
   display: inline-block;
-  padding: 8px 35px;
   border-radius: 50px;
   color: #fff;
   transition: none;
@@ -1348,9 +1300,27 @@ section {
   background: #3ac162;
 }
 
+.courses .btn-sort {
+  background: #7C9EC2;
+  display: inline-block;
+  padding: 8px 35px;
+  border-radius: 6px;
+  color: #fff;
+  transition: none;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Raleway", sans-serif;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.courses .btn-sort:hover {
+  background: #5c7da0;
+}
+
 .pricing .featured h3 {
   color: #fff;
-  background: #5fcf80;
+  background: #7C9EC2;
 }
 
 .pricing .advanced {
@@ -1362,7 +1332,7 @@ section {
   z-index: 1;
   font-size: 14px;
   padding: 1px 0 3px 0;
-  background: #5fcf80;
+  background: #7C9EC2;
   color: #fff;
 }
 
@@ -1380,7 +1350,7 @@ section {
 
 .contact .info i {
   font-size: 20px;
-  color: #5fcf80;
+  color: #7C9EC2;
   float: left;
   width: 44px;
   height: 44px;
@@ -1415,7 +1385,7 @@ section {
 .contact .info .email:hover i,
 .contact .info .address:hover i,
 .contact .info .phone:hover i {
-  background: #5fcf80;
+  background: #7C9EC2;
   color: #fff;
 }
 
@@ -1479,7 +1449,7 @@ section {
 
 .contact .php-email-form input:focus,
 .contact .php-email-form textarea:focus {
-  border-color: #5fcf80;
+  border-color: #7C9EC2;
 }
 
 .contact .php-email-form input {
@@ -1491,7 +1461,7 @@ section {
 }
 
 .contact .php-email-form button[type=submit] {
-  background: #5fcf80;
+  background: #7C9EC2;
   border: 0;
   padding: 10px 35px;
   color: #fff;
@@ -1527,14 +1497,14 @@ section {
 # Footer
 --------------------------------------------------------------*/
 #footer {
-  color: #37423b;
+  color: #f5f9f6;
   font-size: 14px;
   background: #334960;
 }
 
 #footer .footer-top {
-  padding: 60px 0 30px 0;
-  background: #f9faf9;
+  padding: 30px 0 20px 0;
+  background: #334960;
 }
 
 #footer .footer-top .footer-contact {
@@ -1554,19 +1524,19 @@ section {
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Raleway", sans-serif;
-  color: #777777;
+  color: #f5f9f6;
 }
 
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: bold;
-  color: #444444;
+  color: #f5f9f6;
   position: relative;
   padding-bottom: 12px;
 }
 
-#footer .footer-top .footer-links {
-  margin-bottom: 30px;
+#footer .footer-top .footer-links p {
+  margin-bottom: 20px;
 }
 
 #footer .footer-top .footer-links ul {
@@ -1577,7 +1547,7 @@ section {
 
 #footer .footer-top .footer-links ul i {
   padding-right: 2px;
-  color: #5fcf80;
+  color: #7C9EC2;
   font-size: 18px;
   line-height: 1;
 }
@@ -1593,7 +1563,7 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #777777;
+  color: #f5f9f6;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
@@ -1601,7 +1571,7 @@ section {
 
 #footer .footer-top .footer-links ul a:hover {
   text-decoration: none;
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 #footer .footer-newsletter {
@@ -1632,21 +1602,7 @@ section {
   width: calc(100% - 100px);
 }
 
-#footer .footer-newsletter form input[type=submit] {
-  position: absolute;
-  top: -1px;
-  right: -1px;
-  bottom: -1px;
-  border: 0;
-  background: none;
-  font-size: 16px;
-  padding: 0 20px 2px 20px;
-  background: #5fcf80;
-  color: #fff;
-  transition: 0.3s;
-  border-radius: 50px;
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-}
+
 
 #footer .footer-newsletter form input[type=submit]:hover {
   background: #3ac162;
@@ -1663,13 +1619,13 @@ section {
 }
 
 #footer .credits a:hover {
-  color: #5fcf80;
+  color: #7C9EC2;
 }
 
 #footer .social-links a {
   font-size: 18px;
   display: inline-block;
-  background: #5fcf80;
+  background: #7C9EC2;
   color: #fff;
   line-height: 1;
   padding: 8px 0;
@@ -1681,8 +1637,45 @@ section {
   transition: 0.3s;
 }
 
+
+#footer .mitra-links a {
+  font-size: 48px;
+  display: inline-block;
+  /* background: #fff; */
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0px;
+  margin-left: 20px;
+  border-radius: 50%;
+  text-align: center;
+  width: 48px;
+  height: 48px;
+  transition: 0.3s;
+}
+
+#footer .mitra-links img{
+  width: 48px;
+  height: 48px;
+}
+
 #footer .social-links a:hover {
   background: #3ac162;
   color: #fff;
   text-decoration: none;
+}
+
+
+.pagination > li > a,
+.pagination > li > span {
+  color: #111;
+}
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color: #7C9EC2;
+    border-color: #7C9EC2;
 }

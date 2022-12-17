@@ -6,6 +6,7 @@ use App\Http\Controllers\backend\AdminAccountController;
 use App\Http\Controllers\backend\LogoutController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\ClassroomController;
+use App\Http\Controllers\backend\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,28 +19,31 @@ use App\Http\Controllers\backend\ClassroomController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('frontend.index');
-// });
-
-// Route::get('/class', function () {
-//     return view('frontend.class');
-// });
 
 Route::prefix('')->group(function () {
     Route::get('/', function () {return view('frontend.index');})->name('home');
+    Route::get('/beranda', [WebinarController::class, 'webinarshow'])->name('home');
+    Route::get('/ensiklopedia', function () {return view('frontend.ensiklopedia');})->name('ensiklopedia');
+    Route::get('/komunitas', function () {return view('frontend.komunitas');})->name('komunitas');
+    Route::get('/Tentang Kami', function () {return view('frontend.aboutus');})->name('tentangKami');
     Route::get('/category', [CategoryController::class, 'show'])->name('category');
     Route::get('/webinar', [WebinarController::class, 'show'])->name('webinar');
+    Route::get('/webinar/soon', [WebinarController::class, 'show_soon'])->name('webinar_soon');
+    Route::get('/webinar/done', [WebinarController::class, 'show_done'])->name('webinar_done');
     Route::get('/webinar/detail{id}', [WebinarController::class, 'detail'])->name('webinardetail');
     Route::get('/class{id}', [ClassroomController::class, 'show'])->name('class');
     Route::get('/class/detail{id}', [ClassroomController::class, 'detail'])->name('classdetail');
+    Route::get('/', [WebinarController::class, 'fiturBeranda']);
 });
 
 
 
-
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
+    
     Route::get('/dashboard', function () {return view('admin.dashboard');})->name('dashboard');
+
+    Route::get('/dashboard', [DashboardController::class, 'panelDashboard'])->name('webinar.dashboard');
+    // Route::get('/dashboard', [WebinarController::class, 'panelDashboard'])->name('totalWebinar');
 
     Route::get('/webinar/view', [WebinarController::class, 'index'])->name('webinar.view');
     Route::get('/webinar/add', [WebinarController::class, 'add'])->name('webinar.add');
@@ -56,6 +60,7 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/category/edit{id}', [CategoryController::class, 'edit'])->name('category.edit');
     Route::get('/category/update', [CategoryController::class, 'update'])->name('category.update');
     Route::get('/category/delete{id}', [CategoryController::class, 'delete'])->name('category.delete');
+    Route::get('/category/cancel', [CategoryController::class, 'cancel'])->name('category.cancel');
 
     Route::get('/classroom/view', [ClassroomController::class, 'index'])->name('classroom.view');
     Route::get('/classroom/add', [ClassroomController::class, 'add'])->name('classroom.add');
@@ -63,7 +68,8 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/classroom/edit{id}', [ClassroomController::class, 'edit'])->name('classroom.edit');
     Route::put('/classroom/update{id}', [ClassroomController::class, 'update'])->name('classroom.update');
     Route::get('/classroom/delete{id}', [ClassroomController::class, 'delete'])->name('classroom.delete');
-    Route::get('/classroom/detail{id}', [ClassroomController::class, 'detail'])->name('classroom.detail');
+    Route::get('/classroom/cancel', [ClassroomController::class, 'cancel'])->name('classroom.cancel');
+    Route::get('/classroom/detail{id}', [ClassroomController::class, 'detailAdmin'])->name('classroom.detail');
 
     Route::get('/account/view', [AdminAccountController::class, 'index'])->name('admin.view');
     Route::get('/account/add', [AdminAccountController::class, 'add'])->name('admin.add');
@@ -71,25 +77,11 @@ Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])-
     Route::get('/account/edit/{id}', [AdminAccountController::class, 'edit'])->name('admin.edit');
     Route::post('/account/update/{id}', [AdminAccountController::class, 'update'])->name('admin.update');
     Route::get('/account/delete/{id}', [AdminAccountController::class, 'delete'])->name('admin.delete');
+    Route::get('/account/cancel', [AdminAccountController::class, 'cancel'])->name('admin.cancel');
     
     Route::get('/account/logout', [LogoutController::class, 'logout'])->name('admin.logout');
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

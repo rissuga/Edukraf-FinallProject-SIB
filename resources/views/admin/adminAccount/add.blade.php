@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h4 class="card-title">Tambah Data Admin</h4>
                 <p class="card-description">
-                    Tambahkan data admin baru untuk membantu tugasmu.
+                    Lengkapi form di bawah untuk menambah data admin.
                 </p>
 
                 @if (session('msg'))
@@ -35,7 +35,8 @@
 
                     <div class="form-group">
                         <label for="exampleInputEmail3">Email address</label>
-                        <input type="email" name="email" class="form-control">
+                        <input type="email" name="email" class="form-control" id="exampleInputEmail3"
+                            placeholder="Email">
                     </div>
 
                     <div class="form-group">
@@ -55,8 +56,8 @@
                         }
                     </script>
 
-                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+                    <a type="submit" class="btn btn-primary mr-2">Submit</a>
+                    <a class="btn btn-light" href="{{ route('admin.cancel') }}">Cancel</a>
                 </form>
 
             </div>

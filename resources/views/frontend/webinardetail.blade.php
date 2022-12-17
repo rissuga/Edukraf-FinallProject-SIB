@@ -1,6 +1,54 @@
 @extends('frontend.body.index2')
 @section('content')
     <main id="main">
+        @php
+            function substrwords($text, $maxchar, $end = '...')
+            {
+                if (strlen($text) > $maxchar || $text == '') {
+                    $words = preg_split('/\s/', $text);
+                    $output = '';
+                    $i = 0;
+                    while (1) {
+                        $length = strlen($output) + strlen($words[$i]);
+                        if ($length > $maxchar) {
+                            break;
+                        } else {
+                            $output .= ' ' . $words[$i];
+                            ++$i;
+                        }
+                    }
+                    $output .= $end;
+                } else {
+                    $output = $text;
+                }
+                return $output;
+            }
+            
+            function tgl_indo($tanggal)
+            {
+                $bulan = [
+                    1 => 'Januari',
+                    'Februari',
+                    'Maret',
+                    'April',
+                    'Mei',
+                    'Juni',
+                    'Juli',
+                    'Agustus',
+                    'September',
+                    'Oktober',
+                    'November',
+                    'Desember',
+                ];
+                $pecahkan = explode('-', $tanggal);
+            
+                // variabel pecahkan 0 = tahun
+                // variabel pecahkan 1 = bulan
+                // variabel pecahkan 2 = tanggal
+            
+                return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+            }
+        @endphp
 
         <!-- ======= Cource Details Section ======= -->
         <section id="course-details" class="course-details mt-5">
@@ -16,25 +64,76 @@
                         </p>
                         <div class="course-info d-flex justify-content-between align-items-center">
                             <h5><i class="bx bx-user"></i> Pemateri</h5>
-                            <p>Walter White</p>
+                            <p>{{ $webinar->speaker }}</p>
                         </div>
 
                         <div class="course-info d-flex justify-content-between align-items-center">
                             <h5><i class="bx bx-calendar"></i> Tanggal, waktu</h5>
-                            <p>{{ $webinar->date }}</p>
+                            <p class="mb-2">
+                                <i class="bx bx-calendar"></i>&nbsp;{{ tgl_indo($webinar->date) }}
+                            </p>
+
                         </div>
 
-                        <div class="course-info d-flex justify-content-between align-items-center">
-                            <h5><i class="bx bx-link"></i> Link pendaftaran</h5>
-                            <p>$165</p>
-                        </div>
+                        @if (strtotime($webinar->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
+                            <div class="course-info d-flex justify-content-between align-items-center">
+                                <h5><i class="bx bx-link"></i> Link pendaftaran</h5>
+                                <a href="{{ $webinar->link_webinar }}"
+                                    class="btn btn-success btn-sm"style="margin-left: 4px; color:#fff;">Daftar</a>
+                            </div>
+                        @endif
 
-                        <div class="course-info d-flex justify-content-between align-items-center">
-                            <h5><i class="bx bx-video"></i> Link record</h5>
-                            <p><a href="{{ $webinar->link_record }}">{{ $webinar->link_record }}</a></p>
-                        </div>
+                        @if ($webinar->link_record != null)
+                            <span><a class="btn btn-primary" href="{{ $webinar->link_record }}">Record</a></span>
+                        @else
+                        @endif
+
+
                     </div>
                     <div class="col-lg-4 justify-content-center">
+                        <section id="courses" style="margin-top: 0; padding-top:0;" class="courses">
+                            <div class="container">
+                                <h5 style="font-size: 25px;">Webinar Lainnya</h5>
+                                <div class="row">
+                                    @foreach ($select as $key => $web)
+                                        <div class="col-lg-12 d-flex align-items-stretch mt-3">
+                                            <div class="card h-100">
+                                                <a href="{{ route('webinardetail', $web->id) }}">
+                                                    <div class="course-item">
+                                                        <img src="/storage/{{ $web->cover }}" class="card-img-top"
+                                                            alt="{{ $web->title }}"
+                                                            style="height: 250px; object-fit: cover;">
+                                                        <div class="course-content">
+
+                                                            <h3>{{ $web->title }}</h3>
+
+                                                            <p class="mb-2"><i
+                                                                    class="bx bx-calendar"></i>&nbsp;{{ tgl_indo($web->date) }}
+                                                            </p>
+                                                            @if (strtotime($web->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
+                                                                <span class="badge bg-warning text-dark mb-3">akan
+                                                                    datang</span>
+                                                            @else
+                                                                <span
+                                                                    class="badge bg-success text-light mb-3">selesai</span>
+                                                            @endif
+
+                                                            <p>{{ substrwords($web->desc, 100) }}</p>
+
+                                                        </div>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
+                        </section>
+
+
+
+                    </div>
+                    {{-- <div class="col-lg-4 justify-content-center">
                         <section id="courses" style="margin-top: 0; padding-top:0;" class="courses">
                             <div class="container">
                                 <h5 style="font-size: 25px;">Webinar Lainnya</h5>
@@ -63,14 +162,12 @@
                                 </div>
                             </div>
                         </section>
-
-
-
-                    </div>
+                    </div> --}}
                 </div>
 
             </div>
         </section>
+
     </main>
     <!-- End Cource Details Section -->
 @endsection

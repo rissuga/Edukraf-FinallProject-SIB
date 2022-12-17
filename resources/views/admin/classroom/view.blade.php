@@ -4,15 +4,11 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Tables</h1>
-        <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-            For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official
-                DataTables documentation</a>.</p>
+        <h1 class="h3 mb-2 text-gray-800">Data Kelas</h1>
 
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Kelas Edukraf</h6>
                 <a href="{{ route('classroom.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
                     Data</a>
             </div>
@@ -33,7 +29,6 @@
                         </thead>
 
                         <tbody>
-
                             @foreach ($classroom as $key => $clsrm)
                                 <tr>
                                     <td scope="key"> {{ $key + $classroom->firstItem() }}</td>
@@ -49,7 +44,6 @@
                                                 class="btn btn-primary btn-sm" style="margin-left: 4px;">edit</a>
                                             <a href="{{ route('classroom.delete', $clsrm->id) }}"
                                                 class="btn btn-danger btn-sm" style="margin-left: 4px;  ">delete</a>
-
                                         </div>
 
                                     </td>
