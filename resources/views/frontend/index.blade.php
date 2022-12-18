@@ -10,17 +10,10 @@
     @section('content')
         <!-- ======= Hero Section ======= -->
         <section id="hero" class="d-flex justify-content-center align-items-center">
-            <div class="container position-relative" data-aos="zoom-in" data-aos-delay="100">
+            <div class="container position-relative text-center" data-aos="zoom-in" data-aos-delay="100">
                 <h1>Temukan</h1>
                 <h1>Wawasan Kreatifmu</h1>
-                <div class="col-md-6">
-                    <p>Ekonomi kreatif merupakan ekosistem yang memiliki hubungan saling ketergantungan antara
-                        rantai nilai kreatif <i> (creative value chain)</i>, ligkungan pengembangan nurturance environment,
-                        pasar
-                        <i>(market)</i> dan pengarsipan <i>(archiving).</i>
-                    </p>
-                </div>
-
+                <p>Ikuti berbagai macam kelas dan webinar untuk meningkatkan Keahlianmu!</p>
             </div>
         </section><!-- End Hero -->
 
@@ -84,25 +77,24 @@
                         <div class="col-lg-6 order-1 order-lg-2" data-aos="fade-left" data-aos-delay="100">
                             <img src="{{ asset('frontend/assets/img/subsektor.png') }}" class="img-fluid" alt="">
                         </div>
-                        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content">
-                            <h3>Apa Itu Edukraf ?
-                            </h3>
-                            <p class="fst-italic">
-                                Edukraf adalah website edukasi dan informasi untuk pelaku ekonomi kreatif.
-                                Edukraf ini berisi informasi seputar ekraf dalam berbagai fitur seperti kelas, webinar, dan
-                                komunitas
-                                untuk pelaku ekraf. Di Edukraf kamu bisa menemukan
-                            </p>
-                            <ul>
-                                <li><i class="bi bi-check-circle"></i> Berbagai macam webinar ekonomi kreatif</li>
-                                <li><i class="bi bi-check-circle"></i> Beragam kelas yang terdiri dari subsektor ekonomi
-                                    kreatif</li>
-                                <li><i class="bi bi-check-circle"></i> Komunitas para pelaku ekonomi kreatif Jember </li>
-                            </ul>
-                            <p>
-                                Sudah Waktunya Membenahi Jember (Wes Wahaye Mbenahi Jember) dengan berprinsip pada Sinergi,
-                                Kolaborasi dan Akselerasi dalam Membangun Jembers
-                            </p>
+                        <div class="col-lg-6 pt-4 pt-lg-0 order-2 order-lg-1 content mt-5">
+                            <div>
+                                <h3>Apa Itu Edukraf?</h3>
+                                <p class="">
+                                    Edukraf adalah website edukasi dan informasi untuk pelaku ekonomi kreatif.
+                                    Edukraf ini berisi informasi seputar ekraf dalam berbagai fitur seperti kelas, webinar,
+                                    dan
+                                    komunitas
+                                    untuk pelaku ekraf. Di Edukraf kamu bisa menemukan
+                                </p>
+                                <ul>
+                                    <li><i class="bi bi-check-circle"></i> Berbagai macam webinar ekonomi kreatif</li>
+                                    <li><i class="bi bi-check-circle"></i> Beragam kelas yang terdiri dari subsektor ekonomi
+                                        kreatif</li>
+                                    <li><i class="bi bi-check-circle"></i> Komunitas para pelaku ekonomi kreatif Jember
+                                    </li>
+                                </ul>
+                            </div>
 
                         </div>
                     </div>
@@ -112,14 +104,14 @@
             <!-- End Apa itu Edukraf Section -->
 
             <!-- ======= Why Us Section ======= -->
-            <section id="why-us" class="why-us">
+            <section id="why-us" class="why-us bg-light">
                 <div class="container" data-aos="fade-up">
 
                     <div class="row">
-                        <div class="col-lg-4 d-flex align-items-stretch">
-                            <div class="content">
+                        <div class="col-lg-4 d-flex align-items-center">
+                            <div class="content" style="border-radius: 20px">
                                 <h3>Kenapa memilih Edukraf?</h3>
-                                <p>
+                                <p class="mb-0">
                                     Lebih mudah menemukan informasi dan pengetahuan apapun terkait ekonomi kreatif, melalui
                                     fitur yang kami sediakan di Edukraf
                                 </p>
@@ -170,44 +162,54 @@
 
 
             <!-- ======= Fitur Webinar Section ======= -->
-            <section id="testimonials" class="testimonials">
+            <section id="testimonials" class="testimonials my-5">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
                         <h2>Webinar</h2>
                         <p>Webinar Pilihan</p>
-                        <a href="{{ route('webinar') }}" class="btn btn-outline-primary btn-sm">Lihat semua</a>
 
                     </div>
-                    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                        <div class="swiper-wrapper" style="height:400px">
+                    <div>
+                        <div class="row">
                             @foreach ($webinar as $key => $web)
-                                <div class="swiper-slide" data-swiper-slide-index="2">
-                                    <div class="testimonial-wrap">
-                                        {{-- <a href="{{ route('webinar') }}"> --}}
-                                        <div class="testimonial-item">
+                                <div class="col-md-4 align-items-stretch mt-4">
+                                    <div class="card card-button h-100"
+                                        onclick="window.location='{{ route('webinardetail', $web->id) }}'">
+                                        <div class="card-body">
                                             <img src="/storage/{{ $web->cover }}" class="card-img-top"
-                                                alt="{{ $web->title }}" style="height: 100px; object-fit: cover;">
-                                            <div class="course-content">
-                                                <h3>{{ $web->title }}</h3>
-                                                <p class="mb-2">
-                                                    <i class="bx bx-calendar"></i>&nbsp;{{ tgl_indo($web->date) }}
-                                                </p>
+                                                alt="{{ $web->title }}" style="height: 300px; object-fit: cover;">
+
+                                            <div class="mt-3">
                                                 @if (strtotime($web->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
-                                                    <span class="badge bg-warning text-dark mb-3">akan datang</span>
+                                                    <span class="badge bg-warning text-dark mb-2">Akan Datang</span>
                                                 @else
-                                                    <span class="badge bg-success text-light mb-3">selesai</span>
+                                                    <span class="badge bg-success text-light mb-2">Selesai</span>
                                                 @endif
-                                                <p>{{ substrwords($web->desc, 100) }}</p>
+
+                                                <h5><b>{{ $web->title }}</b></h5>
+                                                <small class="mb-2">
+                                                    <i class="bx bx-calendar"></i>&nbsp;{{ tgl_indo($web->date) }}
+                                                </small>
+
+                                                <p class="mt-3 text-grey">{{ substrwords($web->desc, 100) }}</p>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
+                            
+                            <div class="col-md-4 align-items-stretch mt-4">
+                                <div class="card h-100">
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="mt-3">
+                                            <h5 class="mb-3">Dan masih banyak lagi</h5>
+                                            <a href="{{ route('webinar') }}" class="btn btn-outline-secondary btn-lg">Lihat semuanya →</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-prev" style=" color:#7C9EC2; ">
-                        </div>
-                        <div class="swiper-button-next" style="color: #7C9EC2; padding-right:-8s0px;"></div>
                     </div>
 
                 </div>
@@ -215,8 +217,8 @@
             <!-- End Fitur Webinar Section -->
 
             <!-- ======= Kategori Kelas Section ======= -->
-            <section id="features" class="features">
-                <div class="container" data-aos="fade-up">
+            <section id="features" class="features my-5 bg-light">
+                <div class="container py-5 mt-3" data-aos="fade-up">
                     <div class="section-title" style="padding-top: 10px">
                         <h2>Kategori Kelas</h2>
                         <p>Daftar Kategori Kelas</p>
@@ -224,9 +226,13 @@
                     <div class="row" data-aos="zoom-in" data-aos-delay="100">
                         @foreach ($category as $key => $cat)
                             <div class="col-lg-3 mt-4">
-                                <div class="icon-box">
-                                    <h3>{{ $cat->title_category }}</h3>
-                                </div>
+                                <a href="{{ route('class', $cat->id) }}">
+                                    <div class="card card-button h-100">
+                                        <div class="card-body p-4">
+                                            <i class='bx bxs-book mb-3 text-secondary' style="font-size: 30px"></i>
+                                            <h5><b>{{ $cat->title_category }}</b></h5>
+                                        </div>
+                                    </div>
                                 </a>
                             </div>
                         @endforeach

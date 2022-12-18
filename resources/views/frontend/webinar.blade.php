@@ -65,62 +65,50 @@
     <main id="main">
 
         <!-- ======= Courses Section ======= -->
-        <section id="courses" class="courses pt-0">
+        <section id="courses" class="courses pt-5">
             <div class="container" data-aos="fade-up">
-                <div class="row justify-content-center btn-wrap mb-3" style="margin-top: 15px; background-color:white;">
-                    <div class="col-md-2 d-grid"><a class="btn-sort" href="{{ route('webinar') }}" role="button">Semua</a>
+                <div class="row justify-content-center mb-5 mt-3" style="margin-top: 15px;">
+                    <div class="col-md-2 d-grid">
+                        <a class="btn py-2 {{ empty(Request::segment(2)) ? 'btn-secondary' : 'btn-outline-secondary' }}"
+                            href="{{ route('webinar') }}">Semua</a>
                     </div>
-                    <div class="col-md-2 d-grid"><a class="btn-sort" href="{{ route('webinar_soon') }}" role="button">Akan
-                            Datang</a></div>
-                    <div class="col-md-2 d-grid"><a class="btn-sort" href="{{ route('webinar_done') }}"
-                            role="button">Selesai</a></div>
+                    <div class="col-md-2 d-grid">
+                        <a class="btn py-2 {{ Request::segment(2) == 'soon' ? 'btn-secondary' : 'btn-outline-secondary' }}"
+                            href="{{ route('webinar_soon') }}" role="button">Akan Datang</a>
+                    </div>
+                    <div class="col-md-2 d-grid">
+                        <a class="btn py-2 {{ Request::segment(2) == 'done' ? 'btn-secondary' : 'btn-outline-secondary' }}"
+                            href="{{ route('webinar_done') }}" role="button">Selesai</a>
+                    </div>
                 </div>
 
                 <div class="row row-cols-1 row-cols-md-3 g-4" data-aos="zoom-in" data-aos-delay="100">
                     @foreach ($webinar as $key => $web)
-                        <div class="col align-items-stretch mt-4">
-                            <div class="card h-100">
-                                <a href="{{ route('webinardetail', $web->id) }}">
-                                    <div class="course-item">
-                                        <img src="/storage/{{ $web->cover }}" class="card-img-top"
-                                            alt="{{ $web->title }}" style="height: 300px; object-fit: cover;">
-                                        <div class="course-content">
+                        <div class="col-md-4 align-items-stretch mt-4">
+                            <div class="card card-button h-100"
+                                onclick="window.location='{{ route('webinardetail', $web->id) }}'">
+                                <div class="card-body">
+                                    <img src="/storage/{{ $web->cover }}" class="card-img-top" alt="{{ $web->title }}"
+                                        style="height: 300px; object-fit: cover;">
 
-                                            <h3>{{ $web->title }}</h3>
-                                            <p class="mb-2">
-                                                <i class="bx bx-calendar"></i>&nbsp;{{ tgl_indo($web->date) }}
-                                            </p>
-                                            @if (strtotime($web->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
-                                                <span class="badge bg-warning text-dark mb-3">akan datang</span>
-                                            @else
-                                                <span class="badge bg-success text-light mb-3">selesai</span>
-                                            @endif
+                                    <div class="mt-3">
+                                        @if (strtotime($web->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
+                                            <span class="badge bg-warning text-dark mb-2">Akan Datang</span>
+                                        @else
+                                            <span class="badge bg-success text-light mb-2">Selesai</span>
+                                        @endif
 
-                                            <p>{{ substrwords($web->desc, 100) }}</p>
+                                        <h5><b>{{ $web->title }}</b></h5>
+                                        <small class="mb-2">
+                                            <i class="bx bx-calendar"></i>&nbsp;{{ tgl_indo($web->date) }}
+                                        </small>
 
+                                        <p class="mt-3 text-grey">{{ substrwords($web->desc, 100) }}</p>
 
-                                            {{-- <p>{{ $web->desc }}</p>
-                                            <div class=" trainer d-flex justify-content-between align-items-center">
-                                                <div class="trainer-rank d-flex align-items-center">
-                                                    <i class="bx bx-calendar"></i>&nbsp;{{ $web->date }}
-                                                </div>
-                                            </div> --}}
-                                        </div>
                                     </div>
-                                </a>
+                                </div>
                             </div>
                         </div>
-
-                        {{-- <div class="col">
-                        <div class="card h-100">
-                            <img src="/storage/{{ $web->cover }}" class="card-img-top" alt="{{ $web->title }}">
-                            <div class="card-body ">
-                                <h3 class="card-title mt-auto">{{ $web->title }}</h3>
-                                <p class="card-text">{{ $web->desc }}</p>
-                            </div>
-
-                        </div>
-                    </div> --}}
                     @endforeach
 
                 </div>

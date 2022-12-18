@@ -96,33 +96,30 @@
                                 <h5 style="font-size: 25px;">Webinar Lainnya</h5>
                                 <div class="row">
                                     @foreach ($select as $key => $web)
-                                        <div class="col-lg-12 d-flex align-items-stretch mt-3">
-                                            <div class="card h-100">
-                                                <a href="{{ route('webinardetail', $web->id) }}">
-                                                    <div class="course-item">
-                                                        <img src="/storage/{{ $web->cover }}" class="card-img-top"
-                                                            alt="{{ $web->title }}"
-                                                            style="height: 250px; object-fit: cover;">
-                                                        <div class="course-content">
+                                        <div class="col-md-12 align-items-stretch mt-4">
+                                            <div class="card card-button h-100"
+                                                onclick="window.location='{{ route('webinardetail', $web->id) }}'">
+                                                <div class="card-body">
+                                                    <img src="/storage/{{ $web->cover }}" class="card-img-top"
+                                                        alt="{{ $web->title }}"
+                                                        style="height: 300px; object-fit: cover;">
 
-                                                            <h3>{{ $web->title }}</h3>
+                                                    <div class="mt-3">
+                                                        @if (strtotime($web->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
+                                                            <span class="badge bg-warning text-dark mb-2">Akan Datang</span>
+                                                        @else
+                                                            <span class="badge bg-success text-light mb-2">Selesai</span>
+                                                        @endif
 
-                                                            <p class="mb-2"><i
-                                                                    class="bx bx-calendar"></i>&nbsp;{{ tgl_indo($web->date) }}
-                                                            </p>
-                                                            @if (strtotime($web->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
-                                                                <span class="badge bg-warning text-dark mb-3">akan
-                                                                    datang</span>
-                                                            @else
-                                                                <span
-                                                                    class="badge bg-success text-light mb-3">selesai</span>
-                                                            @endif
+                                                        <h5><b>{{ $web->title }}</b></h5>
+                                                        <small class="mb-2">
+                                                            <i class="bx bx-calendar"></i>&nbsp;{{ tgl_indo($web->date) }}
+                                                        </small>
 
-                                                            <p>{{ substrwords($web->desc, 100) }}</p>
+                                                        <p class="mt-3 text-grey">{{ substrwords($web->desc, 100) }}</p>
 
-                                                        </div>
                                                     </div>
-                                                </a>
+                                                </div>
                                             </div>
                                         </div>
                                     @endforeach

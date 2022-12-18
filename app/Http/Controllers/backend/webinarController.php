@@ -4,6 +4,8 @@ namespace App\Http\Controllers\backend;
 use App\Models\webinar;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
+use App\Models\category;
+use App\Models\classroom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -130,7 +132,7 @@ class WebinarController extends Controller
 
     public function show()
     {
-        $webinar = webinar::paginate(2);
+        $webinar = webinar::paginate(10);
         return view('frontend.webinar', compact('webinar'));
     }
 
@@ -164,9 +166,16 @@ class WebinarController extends Controller
     public function fiturBeranda()
     {
         $webinar = webinar::where('id','<',6)->get();
-        // dd($webinar);
         return view('frontend.index', compact('webinar'));
       
+    }
+
+    public function fiturshow()
+    {
+        $webinar = webinar::orderBy('date', 'desc')->limit(5)->get();
+        $category = category::all();
+        $class = classroom::all();
+        return view('frontend.index', compact('webinar', 'category', 'class'));
     }
    
 }

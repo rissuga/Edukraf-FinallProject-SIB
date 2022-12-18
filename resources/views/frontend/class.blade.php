@@ -18,13 +18,18 @@
         <section id="features" class="features my-5">
             <div class="container" data-aos="fade-up">
 
+                <h5>Pilihan Kelas</h5>
+
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
 
                     @foreach ($category as $key => $cat)
                         <div class="col-lg-3 mt-4">
                             <a href="{{ route('class', $cat->id) }}">
-                                <div class="icon-box">
-                                    <h3>{{ $cat->title_category }}</h3>
+                                <div class="card card-button h-100">
+                                    <div class="card-body p-4">
+                                        <i class='bx bxs-book mb-3 text-secondary' style="font-size: 30px"></i>
+                                        <h5><b>{{ $cat->title_category }}</b></h5>
+                                    </div>
                                 </div>
                             </a>
                         </div>

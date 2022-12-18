@@ -1,0 +1,60 @@
+/**
+* Custom Boostrap UI
+* Author: rahmatrdn.github.io
+*/
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+.text-grey {
+  color: rgb(142, 142, 142) !important;
+}
+
+
+/*--------------------------------------------------------------
+# Cards
+--------------------------------------------------------------*/
+
+.card {
+  border: none;
+  box-shadow: 0px 2px 19px rgba(0, 0, 0, 0.11);
+  padding: 0px !important;
+  border-radius: 15px;
+}
+
+.card .card-body img {
+  border-radius: 15px;
+}
+
+.card-button {
+  box-shadow: 0px 5px 9px 5px rgba(61, 61, 61, 0.08);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card-button:hover {
+  background-color: #f1f8ff !important;
+  transition: 0.2s;
+}
+.card-button:active {
+  background-color: #ffffff !important;
+}
+.card-button:focus {
+  background-color: #ffffff !important;
+}
+.card-button-sm {
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.07);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.card-button-sm:hover {
+  background-color: #f1f8ff !important;
+  transition: 0.2s;
+}
+.card-button-sm:active {
+  background-color: #ffffff !important;
+}
+.card-button-sm:focus {
+  background-color: #ffffff !important;
+}
