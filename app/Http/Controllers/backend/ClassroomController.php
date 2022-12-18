@@ -18,7 +18,6 @@ class ClassroomController extends Controller
     {
         $class = classroom::where('category_id', $cat)->paginate(9);
         $category = category::find($cat);
-
         return view('frontend.classvidio' ,compact('class','category'));
     }
 
@@ -26,6 +25,7 @@ class ClassroomController extends Controller
     {
         $class= classroom::find($id);
         $select = classroom::paginate(3);
+        // $category = category::where('id', '==', $class->category_id)->get(['title_category']);
         return view('frontend.classdetail' ,compact('class','select'));
     }
     

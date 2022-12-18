@@ -22,7 +22,8 @@ use App\Http\Controllers\backend\DashboardController;
 
 Route::prefix('')->group(function () {
     Route::get('/', function () {return view('frontend.index');})->name('home');
-    Route::get('/beranda', [WebinarController::class, 'webinarshow'])->name('home');
+    Route::get('/beranda', [WebinarController::class, 'fiturshow'])->name('home');
+    Route::get('/', [CategoryController::class, 'categoryshow']);
     Route::get('/ensiklopedia', function () {return view('frontend.ensiklopedia');})->name('ensiklopedia');
     Route::get('/komunitas', function () {return view('frontend.komunitas');})->name('komunitas');
     Route::get('/Tentang Kami', function () {return view('frontend.aboutus');})->name('tentangKami');
@@ -33,7 +34,7 @@ Route::prefix('')->group(function () {
     Route::get('/webinar/detail{id}', [WebinarController::class, 'detail'])->name('webinardetail');
     Route::get('/class{id}', [ClassroomController::class, 'show'])->name('class');
     Route::get('/class/detail{id}', [ClassroomController::class, 'detail'])->name('classdetail');
-    Route::get('/', [WebinarController::class, 'fiturBeranda']);
+    
 });
 
 

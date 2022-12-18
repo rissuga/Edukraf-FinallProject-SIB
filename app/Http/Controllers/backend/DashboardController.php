@@ -21,11 +21,6 @@ class DashboardController extends Controller
 
         $totalCategory = category::count();
         $totalClass = classroom::count();
-
-      
-
-      
-
         return view('admin.dashboard', compact('totalWebinar', 'totalCategory', 'totalClass', 'todayDate', 'thisMonth', 'thisMonthWebinar','todayWebinar'));
     }
 }

@@ -65,6 +65,9 @@
                                 allowfullscreen></iframe>
                         </div>
                         <h3>{{ $class->title_classroom }}</h3>
+                        <p style="margin-bottom: 0px; font-weight:700;"> Kategori :
+                            {{ $class->category['title_category'] }}</p>
+                        <p style="font-weight:700;"> sumber : {{ $class->source }}</p>
                         <p>
                             {{ $class->desc_classroom }}
                         </p>
@@ -85,7 +88,9 @@
                                                         <div class="course-content">
 
                                                             <h3>{{ $clsrm->title_classroom }}</h3>
-                                                            <p> sumber : {{ $clsrm->source }}</p>
+                                                            <p style="margin-bottom: 0px; font-weight:700;"> Kategori :
+                                                                {{ $clsrm->category['title_category'] }}</p>
+                                                            <p style="font-weight:700;"> sumber : {{ $clsrm->source }}</p>
                                                             <p>{{ substrwords($clsrm->desc_classroom, 100) }}</p>
                                                         </div>
                                                     </div>
@@ -99,9 +104,6 @@
                                 </div>
                             </div>
                         </section>
-
-
-
                     </div>
                 </div>
 

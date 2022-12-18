@@ -5,7 +5,7 @@
             <div class="col-md-12 pt-5 ">
                 <h1 class="text-center">{{ $category->title_category ?? 'None' }}</h1>
                 {{-- <h1 class="text-center">{{ $category->title_category ?? 'None' }}</h1> --}}
-                <h5 class="text-center mt-3">{{ $category->desc_category ?? 'None' }}
+                {{-- <h5 class="text-center mt-3">{{ $category->desc_category ?? 'None' }} --}}
                 </h5>
             </div>
         </div>
@@ -50,9 +50,10 @@
                                         <img src="https://img.youtube.com/vi/{{ $clsrm->link_classroom }}/0.jpg"
                                             class="img-fluid" alt="">
                                         <div class="course-content">
-
                                             <h3>{{ $clsrm->title_classroom }}</h3>
-                                            <p> sumber : {{ $clsrm->source }}</p>
+                                            <p style="margin-bottom: 0px; font-weight:700;"> Kategori :
+                                                {{ $clsrm->category['title_category'] }}</p>
+                                            <p style="font-weight:700;"> sumber : {{ $clsrm->source }}</p>
                                             <p>{{ substrwords($clsrm->desc_classroom, 100) }}</p>
                                         </div>
                                     </div>

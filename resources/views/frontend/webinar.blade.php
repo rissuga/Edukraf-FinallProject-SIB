@@ -67,7 +67,7 @@
         <!-- ======= Courses Section ======= -->
         <section id="courses" class="courses pt-0">
             <div class="container" data-aos="fade-up">
-                <div class="row justify-content-center btn-wrap mb-3" style="margin-top: 15px;">
+                <div class="row justify-content-center btn-wrap mb-3" style="margin-top: 15px; background-color:white;">
                     <div class="col-md-2 d-grid"><a class="btn-sort" href="{{ route('webinar') }}" role="button">Semua</a>
                     </div>
                     <div class="col-md-2 d-grid"><a class="btn-sort" href="{{ route('webinar_soon') }}" role="button">Akan

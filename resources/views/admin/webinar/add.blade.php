@@ -47,7 +47,7 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Link Webinar</label>
                                     <div class="col-sm-9">
-                                        <input type="url" name="linkWebinar" class="form-control" required />
+                                        <input type="text" name="linkWebinar" class="form-control" required />
                                     </div>
                                 </div>
                             </div>
@@ -97,7 +97,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="exampleTextarea1">Textarea</label>
+                            <label for="exampleTextarea1">Desc</label>
                             <textarea class="form-control" id="exampleTextarea1" name="desc" rows="4" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mr-2">Submit</button>
