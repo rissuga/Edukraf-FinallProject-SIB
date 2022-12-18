@@ -4,17 +4,17 @@
     <div class="container-fluid">
 
         <!-- Page Heading -->
-        <h1 class="h3 mb-2 text-gray-800">Data Webinar</h1>
         <!-- DataTales Example -->
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <a href="{{ route('webinar.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Add
+            <div class="card-header py-3 d-flex justify-content-between">
+                <h1 class="h3 text-gray-800"><b>Data Webinar</b></h1>
+                <a href="{{ route('webinar.add') }}" style="float: right;" class="btn btn-rounded btn-success mb-4">Tambah
                     Data</a>
             </div>
 
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered  ">
+                    <table class="table table-condensed table-hover  ">
                         <thead>
                             <tr>
                                 <th>No</th>
@@ -46,11 +46,11 @@
                                     <td>
                                         <div class="row">
                                             <a href="{{ route('webinar.detail', $allwebinar->id) }}"
-                                                class="btn btn-info btn-sm"style="margin-left: 4px;">detail</a>
+                                                class="btn btn-info btn-sm"style="margin-left: 4px;">Detail</a>
                                             <a href="{{ route('webinar.edit', $allwebinar->id) }}"
-                                                class="btn btn-primary btn-sm"style="margin-left: 4px; ">edit</a>
+                                                class="btn btn-primary btn-sm"style="margin-left: 4px; ">Edit</a>
                                             <a href="{{ route('webinar.delete', $allwebinar->id) }}"
-                                                class="btn btn-danger btn-sm"style="margin-left: 4px;">delete</a>
+                                                class="btn btn-danger btn-sm"style="margin-left: 4px;">Hapus</a>
                                             <a href="">
                                                 <i class="bi bi-eye-fill"></i>
                                             </a>
