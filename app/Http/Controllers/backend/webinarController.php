@@ -2,19 +2,22 @@
 
 namespace App\Http\Controllers\backend;
 use App\Models\webinar;
-use Carbon\Carbon;
-use App\Http\Controllers\Controller;
 use App\Models\category;
 use App\Models\classroom;
+use Carbon\Carbon;
+use App\Http\Controllers\Controller;
+// use App\Models\category;
+// use App\Models\classroom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class WebinarController extends Controller
 {
-    // Admin
+    //*****Admin******//
+
     public function index()
     {
-        $webinar = webinar::paginate(5);
+        $webinar = webinar::paginate(10);
         return view('admin.webinar.view', compact('webinar'));
     }
 
@@ -78,7 +81,7 @@ class WebinarController extends Controller
         return View('admin.webinar.edit', $data);
     }
 
-    //Update data
+    
     public function update(Request $request) {
         $id= $request->id;
         $judul =$request->judul;
@@ -132,15 +135,10 @@ class WebinarController extends Controller
 
     public function show()
     {
-        $webinar = webinar::paginate(10);
+        $webinar = webinar::paginate(9);
         return view('frontend.webinar', compact('webinar'));
     }
 
-    public function webinarshow()
-    {
-        $webinar = webinar::where('id','<',6)->get();
-        return view('frontend.index', compact('webinar'));
-    }
 
     public function show_soon()
     {   
@@ -166,7 +164,8 @@ class WebinarController extends Controller
     public function fiturBeranda()
     {
         $webinar = webinar::where('id','<',6)->get();
-        return view('frontend.index', compact('webinar'));
+        $category = category::all();
+        return view('frontend.index', compact('webinar', 'category'));
       
     }
 

@@ -29,17 +29,9 @@ class ClassroomController extends Controller
         return view('frontend.classdetail' ,compact('class','select'));
     }
     
-    // public function tampil(Request $request, $cat)
-    // {
-    //     $tampil = classroom::where('category_id', $cat)->get();
-
-    //     return view('frontend.classvidio' ,compact('tampil'));
-    // }
-
     public function add(){
         $category = category::select('id','title_category')->get();
         return view('admin.classroom.add', ['category' => $category]);
-
     }
 
     public function store(Request $request) 
