@@ -198,13 +198,14 @@
                                     </div>
                                 </div>
                             @endforeach
-                            
+
                             <div class="col-md-4 align-items-stretch mt-4">
                                 <div class="card h-100">
                                     <div class="card-body d-flex align-items-center">
                                         <div class="mt-3">
                                             <h5 class="mb-3">Dan masih banyak lagi</h5>
-                                            <a href="{{ route('webinar') }}" class="btn btn-outline-secondary btn-lg">Lihat semuanya →</a>
+                                            <a href="{{ route('webinar') }}" class="btn btn-outline-secondary btn-lg">Lihat
+                                                semuanya →</a>
                                         </div>
                                     </div>
                                 </div>
@@ -242,95 +243,59 @@
             <!-- End Kategori Kelas Section -->
 
             <!-- ======= Daftar Kelas Section ======= -->
-            <section id="testimonials" class="testimonials">
+            <section id="testimonials" class="testimonials my-5">
                 <div class="container" data-aos="fade-up">
                     <div class="section-title">
                         <h2>Kelas Edukraf</h2>
-                        <p>Kelas Pilihan</p>
-                        <a href="{{ route('category') }}" class="btn btn-outline-primary btn-sm">Lihat semua</a>
+                        <p>Jelajahi Kelas</p>
+
                     </div>
-                    <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-                        <div class="swiper-wrapper">
+                    <div>
+                        <div class="row">
                             @foreach ($class as $key => $clsrm)
-                                <div class="swiper-slide" data-swiper-slide-index="2">
-                                    <div class="testimonial-wrap">
-                                        {{-- <a href="{{ route('webinar') }}"> --}}
-                                        <div class="testimonial-item">
+                                <div class="col-md-4 align-items-stretch mt-4">
+                                    <div class="card card-button h-100"
+                                        onclick="window.location='{{ route('classdetail', $clsrm->id) }}'">
+                                        <div class="card-body">
                                             <img src="https://img.youtube.com/vi/{{ $clsrm->link_classroom }}/0.jpg"
-                                                class="img-fluid" alt=""style="height: auto; width:100%;">
-                                            <div class="course-content">
-                                                <h3>{{ $clsrm->title_classroom }}</h3>
-                                                <p class="mb-2">Kategori
-                                                    :{{ $clsrm->category['title_category'] }}</p>
-                                                <p class="mb-2">sumber : {{ $clsrm->source }}</p>
-                                                <p>{{ substrwords($clsrm->desc_classroom, 100) }}</p>
+                                                class="img-fluid" alt=""
+                                                style="height: 300px; object-fit: cover;">
+                                            <div class="mt-3">
+                                                <h5><b>{{ $clsrm->title_classroom }}</b></h5>
+                                                <small class="mb-2">
+                                                    <i class='bx bxs-book mb-3 text-secondary'></i>&nbsp;
+                                                    {{ $clsrm->category['title_category'] }}
+                                                </small> <br>
+                                                <small class="mb-2">
+                                                    <i class="bx bxl-youtube"></i>&nbsp; sumber : {{ $clsrm->source }}
+                                                </small>
+
+                                                <p class="mt-3 text-grey">{{ substrwords($clsrm->desc_classroom, 100) }}
+                                                </p>
+
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             @endforeach
+
+                            <div class="col-md-4 align-items-stretch mt-4">
+                                <div class="card h-100">
+                                    <div class="card-body d-flex align-items-center">
+                                        <div class="mt-3">
+                                            <h5 class="mb-3">Dan masih banyak lagi</h5>
+                                            <a href="{{ route('webinar') }}"
+                                                class="btn btn-outline-secondary btn-lg">Lihat
+                                                semuanya →</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="swiper-pagination"></div>
-                        <div class="swiper-button-prev" style=" color:#7C9EC2; ">
-                        </div>
-                        <div class="swiper-button-next" style="color: #7C9EC2; padding-right:-8s0px;"></div>
                     </div>
 
                 </div>
             </section>
             <!-- End Daftar Kelas Section -->
-
-
-            <!-- ======= Keuntungan Section ======= -->
-            {{-- <section id="about" class="about">
-                <div class="container" data-aos="fade-up">
-
-                    <div class="section-title" style="text-align: center">
-                        <p>Keuntungan</p>
-                        <h2>Keuntungan yang bisa kamu dapatkan saat mengakses Edukraf
-                        </h2>
-                    </div>
-                    <div class="row mt-4">
-                        <div class="col-md-4 d-flex justify-content-center ">
-                            <div class="card text-center py-3" style="width: 18rem;">
-                                <img src="{{ url('/frontend/assets/img/relation.svg') }}" style="max-height: 10rem;"
-                                    class="card-img-top py-4" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Relasi</h5>
-                                    <p class="card-text">Gabung komunitas edukraf jember untuk berjejaring dengan sesama
-                                        Ekraf
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-flex justify-content-center">
-                            <div class="card text-center py-3" style="width: 18rem;">
-                                <img src=" {{ url('/frontend/assets/img/ondemand.svg') }}" style="max-height: 10rem;"
-                                    class="card-img-top py-4" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Akses Materi On Demand</h5>
-                                    <p class="card-text">Materi dapat diakses kapan dan dari mana saja
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-flex justify-content-center">
-                            <div class="card text-center py-3" style="width: 18rem;">
-                                <img src="{{ url('/frontend/assets/img/undraw_shared_workspace_re_3gsu.svg') }}"
-                                    style="max-height: 10rem;" class="card-img-top py-4 md-5" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Ilmu Gratis</h5>
-                                    <p class="card-text">Tingkatkan skilmu secara gratis di Edukraf Jember</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </section> --}}
-            <!-- End Keuntungan Section -->
-
-
-
         </main><!-- End #main -->
     @endsection

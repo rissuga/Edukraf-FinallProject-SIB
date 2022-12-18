@@ -2,9 +2,6 @@
 
 @section('content')
     <div class="container-fluid">
-
-        <!-- Page Heading -->
-        <!-- DataTales Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-flex justify-content-between">
                 <h1 class="h3 text-gray-800"><b>Data Webinar</b></h1>
@@ -23,7 +20,7 @@
                                 <th>Status</th>
                                 <th>Pemateri</th>
                                 <th>Cover</th>
-                                <th width="170px">Action</th>
+                                <th width="170px">Aksi</th>
                             </tr>
                         </thead>
 

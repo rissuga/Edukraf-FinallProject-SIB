@@ -58,8 +58,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Jam mulai</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="timeStart" class="form-control" placeholder="Contoh: 18.00"
-                                            required />
+                                        <input type="text" name="timeStart" class="form-control"
+                                            placeholder="Contoh: 18.00" required />
                                     </div>
                                 </div>
                             </div>
@@ -67,8 +67,8 @@
                                 <div class="form-group row">
                                     <label class="col-sm-3 col-form-label">Jam Selesai</label>
                                     <div class="col-sm-9">
-                                        <input type="text" name="timeEnd" class="form-control" placeholder="Contoh: 20.00"
-                                            required />
+                                        <input type="text" name="timeEnd" class="form-control"
+                                            placeholder="Contoh: 20.00" required />
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                     <label for="exampleInputName1" class="col-sm-3 col-form-label">Cover</label>
                                     <div class="col-sm-9">
                                         <input class="form-control" type="file" name="foto" accept="image/*"
-                                            placeholder="Upload cover" required>
+                                            placeholder="Pilih Gambar" required>
                                     </div>
                                 </div>
                             </div>

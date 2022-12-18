@@ -84,8 +84,7 @@
                     </div> --}}
 
                     <div class="card">
-                        <div class="card-header"
-                            style="background-color:#8ea7f1; font-weight:700; color:rgb(104, 101, 101)">
+                        <div class="card-header" style="background-color:#8ea7f1; font-weight:700; color:#fff">
                             Edukraf
                         </div>
                         <div class="card-body">

@@ -116,7 +116,8 @@
 
             </div>
 
-        </section><!-- End Courses Section -->
+        </section>
+        <!-- End Courses Section -->
 
     </main>
 @endsection

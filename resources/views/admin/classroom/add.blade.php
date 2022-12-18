@@ -6,7 +6,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Data Kelas Edukraf</h4>
+                    <h4 class="card-title">Tambah Kelas</h4>
                     <form class="form-sample" enctype="multipart/form-data" method="post"
                         action="{{ route('classroom.store') }}">
                         @csrf
@@ -65,8 +65,8 @@
                             <label for="exampleTextarea1">Deskripsi</label>
                             <textarea class="form-control" id="exampleTextarea1" name="desc" rows="4" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary mr-2">Submit</button>
-                        <a class="btn btn-light" href="{{ route('classroom.cancel') }}">Cancel</a>
+                        <button type="submit" class="btn btn-primary mr-2">Simpan Data</button>
+                        <a class="btn btn-light" href="{{ route('classroom.cancel') }}">Batal</a>
 
                 </div>
                 </form>

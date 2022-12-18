@@ -34,9 +34,10 @@ Route::prefix('')->group(function () {
     Route::get('/webinar/detail{id}', [WebinarController::class, 'detail'])->name('webinardetail');
     Route::get('/class{id}', [ClassroomController::class, 'show'])->name('class');
     Route::get('/class/detail{id}', [ClassroomController::class, 'detail'])->name('classdetail');
+    Route::get('/', [WebinarController::class, 'fiturshow']);
+
     
 });
-
 
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {

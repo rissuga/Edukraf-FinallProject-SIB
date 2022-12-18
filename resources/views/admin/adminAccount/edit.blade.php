@@ -43,8 +43,8 @@
                     </script>
 
 
-                    <a type="submit" class="btn btn-primary mr-2">Submit</a>
-                    <a class="btn btn-light" href="{{ route('admin.cancel') }}">Cancel</a>
+                    <a type="submit" class="btn btn-primary mr-2">Simpan Data</a>
+                    <a class="btn btn-light" href="{{ route('admin.cancel') }}">Batal</a>
                 </form>
 
             </div>

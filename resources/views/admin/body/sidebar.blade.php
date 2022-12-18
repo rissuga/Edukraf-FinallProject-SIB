@@ -2,10 +2,17 @@
 
     <!-- Sidebar - Brand -->
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        <div class="sidebar-brand-icon rotate-n-15">
-            <i class="fas fa-laugh-wink"></i>
+        {{-- <div class="sidebar-brand-icon "
+            style=" background-color:#8EA7F1; box-shadow: 0px 2px 19px rgba(0, 0, 0, 0.11); margin-right:0px; padding: 3px 7px;">
+            <img style="background-color:#fff;" src="{{ asset('frontend/assets/img/logo.png') }}" alt=""
+                width="20px">
+        </div> --}}
+        <div class="sidebar-brand-text mx-2"
+            style="background-color:#8EA7F1; font-size:24px;  text-transform:none; padding-right:5px;  box-shadow: 0px 2px 19px rgba(0, 0, 0, 0.11); border-radius:7px; ">
+            <img src="{{ asset('frontend/assets/img/logo.png') }}" alt="" width="36px"
+                style="box-shadow: 0px 2px 19px rgba(0, 0, 0, 0.11); background-color:#fff; padding: 0px !important; border-radius:7px">
+            Edukraf
         </div>
-        <div class="sidebar-brand-text mx-3">Edukraf </div>
     </a>
 
     <!-- Divider -->
