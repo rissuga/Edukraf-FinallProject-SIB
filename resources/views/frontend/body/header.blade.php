@@ -8,7 +8,7 @@
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
-        <nav id="navbar" class="navbar order-last order-lg-0">
+        <nav id="navbar" class="navbar  active order-last order-lg-0">
             <ul>
                 <li><a href="{{ route('home') }}">Beranda</a></li>
                 <li><a href="{{ route('ensiklopedia') }}">Ensiklopedia</a></li>

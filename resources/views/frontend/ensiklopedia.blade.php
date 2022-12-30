@@ -5,7 +5,7 @@
             <div class="col-md-12 pt-5 ">
                 <h1 class="text-center">Ensiklopedia</h1>
                 <h5 class="text-center mt-3 ">
-                    informasi umum mengenaik ekonomi kreatif beserta 17 subsektor yang terdapat didalamnya
+                    informasi umum mengenai ekonomi kreatif beserta 17 subsektor yang terdapat didalamnya
                 </h5>
             </div>
         </div>
@@ -367,9 +367,6 @@
                         </section>
                     </div>
                 </div>
-
-
-
 
             </div>
         </section>

@@ -32,9 +32,9 @@
                                     <td>{{ $allwebinar->date }}</td>
                                     <td>
                                         @if (strtotime($allwebinar->date) >= strtotime(gmdate('Y-m-d', time() + 60 * 60 * 7)))
-                                            <span>AKAN BERLANGSUNG</span>
+                                            <span class="badge bg-warning text-dark mb-2">Akan Datang</span>
                                         @else
-                                            <span>SUDAH SELESAI</span>
+                                            <span class="badge bg-success text-light mb-2">Selesai</span>
                                         @endif
                                     </td>
 

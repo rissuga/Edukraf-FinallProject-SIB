@@ -6,8 +6,6 @@ use App\Models\category;
 use App\Models\classroom;
 use Carbon\Carbon;
 use App\Http\Controllers\Controller;
-// use App\Models\category;
-// use App\Models\classroom;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
